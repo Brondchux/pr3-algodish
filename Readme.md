@@ -8,15 +8,15 @@ This application will provide its users an enumeration of ingredients needed and
 
 ## Table of Content
 
-1. [Project Description](https://github.com/Brondchux/hw21-dish-search-engine#project-description)
-2. [User Story](https://github.com/Brondchux/hw21-dish-search-engine#user-story)
-3. [Acceptance Criteria](https://github.com/Brondchux/hw21-dish-search-engine#acceptance-criteria)
-4. [Mock-Up Preview](https://github.com/Brondchux/hw21-dish-search-engine#mock-up-preview)
-5. [Useful Links](https://github.com/Brondchux/hw21-dish-search-engine#useful-links)
-6. [Tech Stack](https://github.com/Brondchux/hw21-dish-search-engine#tech-stack)
-7. [Contributors](https://github.com/Brondchux/hw21-dish-search-engine#contributors)
-8. [Credits](https://github.com/Brondchux/hw21-dish-search-engine#credits)
-9. [License](https://github.com/Brondchux/hw21-dish-search-engine#license)
+1. [Project Description](https://github.com/Brondchux/pr3-algodish#project-description)
+2. [User Story](https://github.com/Brondchux/pr3-algodish#user-story)
+3. [Acceptance Criteria](https://github.com/Brondchux/pr3-algodish#acceptance-criteria)
+4. [Mock-Up Preview](https://github.com/Brondchux/pr3-algodish#mock-up-preview)
+5. [Useful Links](https://github.com/Brondchux/pr3-algodish#useful-links)
+6. [Tech Stack](https://github.com/Brondchux/pr3-algodish#tech-stack)
+7. [Contributors](https://github.com/Brondchux/pr3-algodish#contributors)
+8. [Credits](https://github.com/Brondchux/pr3-algodish#credits)
+9. [License](https://github.com/Brondchux/pr3-algodish#license)
 
 ---
 
@@ -76,19 +76,19 @@ The following photo(s) shows a preview of the application in production mode
 
 ## Useful Links
 
-1. 🗂 [Click me to view github repository for this project](https://github.com/Brondchux/hw21-dish-search-engine/)
-2. 🌍 [Click me to view deployed application via heroku pages](https://brondchux.github.io/hw20-my-portfolio-in-react/)
+1. 🗂 [Click me to view github repository for this project](https://github.com/Brondchux/pr3-algodish/)
+2. 🌍 [Click me to view deployed application via heroku pages](https://heroku.com/)
 
 ---
 
 ## Tech Stack
 
-![apollo logo](./public/assets/images/techs/apollo.png)
 ![reactjs logo](./public/assets/images/techs/reactjs.png)
+![apollo logo](./public/assets/images/techs/apollo.png)
 ![mongodb logo](./public/assets/images/techs/mongodb.png)
-![graphql logo](./public/assets/images/techs/graphql.png)
 ![html5 logo](./public/assets/images/techs/html5.png)
 ![npm logo](./public/assets/images/techs/npm.png)
+![graphql logo](./public/assets/images/techs/graphql.png)
 
 ---
 
