@@ -94,23 +94,13 @@ The following photo(s) shows a preview of the application in production mode
 
 ## Contributors
 
-```md
-Name: Gospel Chukwu
-Email: hello@gospelchukwu.com
-Github: [@brondchux](https://github.com/Brondchux/)
+Rachel Gregg [@rgregg2014](https://github.com/rgregg2014)
 
-Name: Nafis Rahman
-Email: nmr278@nyu.edu
-Github: [@naf15](https://github.com/naf15)
+Zana Mathuthu [@zanamama](https://github.com/zanamama)
 
-Name: Rachel Gregg
-Email: rgregg2014@gmail.com
-Github: [@rgregg2014](https://github.com/rgregg2014)
+Gospel Chukwu [@brondchux](https://github.com/Brondchux/)
 
-Name: Zana Mathuthu
-Email: zmathuthu@yahoo.com
-Github: [@zanamama](https://github.com/zanamama)
-```
+Nafis Rahman [@naf15](https://github.com/naf15)
 
 ---
 
