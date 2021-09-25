@@ -1,11 +1,14 @@
 import "./header.css";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
 	return (
 		<div>
-			<h1>
-				<i className="fas fa-food"></i> AlgoDish
-			</h1>
+			<Link to="/">
+				<h1>
+					<i className="fas fa-bread-slice"></i> AlgoDish
+				</h1>
+			</Link>
 		</div>
 	);
 };
