@@ -3,11 +3,6 @@ const { Schema, model } = require("mongoose");
 const Dish = require("./Dish");
 
 const instructionsSchema = new Schema({
-  dish_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Dish",
-  },
-
   steps: [
     {
       time: {

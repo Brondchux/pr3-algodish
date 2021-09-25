@@ -13,7 +13,8 @@ db.once("open", async () => {
     await User.create(userSeeds);
 
     for (let i = 0; i < dishSeeds.length; i++) {
-      const { _id, dishAuthor } = await Dish.create(dishSeeds[i]);
+      const instructions = await Instructions.create(instructionsSeeds[i]);
+      const { _id, dishAuthor } = await Dish.create({ ...dishSeeds[i], instructions_id: instructions._id });
       const user = await User.findOneAndUpdate(
         { username: dishAuthor },
         {
@@ -22,13 +23,9 @@ db.once("open", async () => {
           },
         }
       );
-
-        const instructions = await Instructions.create({...instructionsSeeds[i], dish_id: _id});
-
-
     }
   } catch (err) {
-    console.process(err);
+    console.error(err);
     process.exit(1);
   }
   console.log("All done!");

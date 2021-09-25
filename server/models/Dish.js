@@ -18,13 +18,14 @@ const dishSchema = new Schema({
 
   ingredients: [
     {
-      ingredient: {
-        type: String,
+      type: String,
         required: true,
-      },
     },
   ],
-  instructions: [Instructions.schema],
+  instructions_id: {
+    type: Schema.Types.ObjectId,
+    ref: "Instructions" 
+  },
 });
 
 const Dish = mongoose.model("Dish", dishSchema);
