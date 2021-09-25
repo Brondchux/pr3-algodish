@@ -7,27 +7,25 @@ const dishSchema = new Schema({
     type: String,
     required: true,
   },
+  dishAuthor: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   image: {
     type: String,
   },
-  total_time: {
-    type: Number,
-  },
-  ingredients: {
-    type: Array,
-    required: true,
-  },
-  instructions: [Instructions.Schema],
-});
 
-dishSchema.methods.totalTime = async function () {
-    let totalTime,
-    //grab times from Instructions schema
-    //add them together
-  return totalTime;
-};
+  ingredients: [
+    {
+      ingredient: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  instructions: [Instructions.schema],
+});
 
 const Dish = mongoose.model("Dish", dishSchema);
 module.exports = Dish;
-
-

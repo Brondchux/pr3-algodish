@@ -1,0 +1,123 @@
+[
+  {
+    "title": "Grilled Cheese",
+    "steps": [
+      {
+        "time": 10,
+        "step": "Get bread"
+      },
+      {
+        "time": 15,
+        "step": "Get cheese"
+      },
+      {
+        "time": 15,
+        "step": "Heat Up Pan"
+      },
+      {
+        "time": 15,
+        "step": "Put butter on bread"
+      },
+      {
+        "time": 15,
+        "step": "Put cheese on bread"
+      },
+      {
+        "time": 15,
+        "step": "Put sandwich in pan"
+      },
+      {
+        "time": 15,
+        "step": "Flip!"
+      },
+      {
+        "time": 15,
+        "step": "Eat"
+      }
+    ]
+  },
+  {
+    "title": "Kale Salad",
+    "steps": [
+      {
+        "time": 10,
+        "step": "Massage kale"
+      },
+      {
+        "time": 15,
+        "step": "Grate parmesan"
+      },
+      {
+        "time": 15,
+        "step": "Chop almonds"
+      },
+      {
+        "time": 15,
+        "step": "Slice tomatoes"
+      }
+    ]
+  },
+  {
+    "title": "Baked Salmon",
+    "steps": [
+      {
+        "time": 10,
+        "step": "Combine juice from lemon with salt, pepper, chives, and dill."
+      },
+      {
+        "time": 15,
+        "step": "Spread onto salmon"
+      },
+      {
+        "time": 25,
+        "step": "Bake in oven for 25 minutes"
+      },
+      {
+        "time": 15,
+        "step": "Serve with additional chopped chives"
+      }
+    ]
+  },
+  {
+    "title": "Coq au Vin",
+    "steps": [
+      {
+        "time": 10,
+        "step": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl"
+      },
+      {
+        "time": 200,
+        "step": "Marinate chicken in wine mixture"
+      },
+      {
+        "time": 20,
+        "step": "Sear chicken"
+      },
+      {
+        "time": 200,
+        "step": "In a 350 degree oven, roast chicken with bacon and flour"
+      }
+    ]
+  },
+  {
+    "title": "Egg Fried Rice",
+    "steps": [
+      {
+        "time": 10,
+        "step": "Heat up oil in a wok"
+      },
+      {
+        "time": 15,
+        "step": "Add rice and soy sauce, stir to combine"
+      },
+      {
+        "time": 15,
+        "step": "Add in eggs"
+      },
+      {
+        "time": 15,
+        "step": "Leave on heat until eggs are cooked through"
+      }
+    ]
+  }
+]
