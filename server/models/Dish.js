@@ -22,7 +22,7 @@ const dishSchema = new Schema({
         required: true,
     },
   ],
-  instructions_id: {
+  instructions: {
     type: Schema.Types.ObjectId,
     ref: "Instructions" 
   },

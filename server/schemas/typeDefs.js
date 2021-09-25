@@ -5,7 +5,6 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    password: String
     created_dishes: [Dish]
     favorite_dishes: [Dish]
     history_dishes: [Dish]
@@ -16,14 +15,20 @@ const typeDefs = gql`
     title: String
     dishAuthor: String
     image: String
-    ingredients: Array
-    instructions: [Instructions]!
+    ingredients: [String]
+    instructions: Instructions!
   }
 
   type Instructions {
     _id: ID
-    dish_id: [Dish]
-    steps: Array
+    total_time: Number
+    steps: [Step]
+  }
+
+  type Step {
+    _id: ID
+    time: Number
+    step: String
   }
 
   type Auth {
@@ -34,8 +39,11 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    dish(username: String): [Dish]
-    dish(_id: ID!): Dish
+    userDishes(username: String!): [Dish]
+    userHistory(username: String!): [Dish]
+    userFavorites(username: String!): [Dish]
+    allDishes: [Dish]
+    fiveRandomDished: [Dish]
     me: User
   }
 
