@@ -1,13 +1,33 @@
 header {
 	display: flex;
-	min-height: 20vh;
+	min-height: 15vh;
+	width: 100%;
+	background-color: #d62246;
+	border-bottom: solid 10px #1a1b41;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 .logo {
 	flex: 1;
 	text-align: center;
+	display: flex;
+	align-items: center;
 }
 
-.navbar {
-	flex: 2;
+.logo a {
+	color: #ffffff;
+}
+
+.logo h1 {
+	font-size: 3rem;
+}
+
+.dish {
+	font-style: italic;
+	font-family: cursive;
+}
+
+nav {
+	flex: 1;
 }
