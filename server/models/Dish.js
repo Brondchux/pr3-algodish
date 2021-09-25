@@ -21,15 +21,13 @@ const dishSchema = new Schema({
 });
 
 dishSchema.methods.totalTime = async function () {
-  return;
+    let totalTime,
+    //grab times from Instructions schema
+    //add them together
+  return totalTime;
 };
 
 const Dish = mongoose.model("Dish", dishSchema);
 module.exports = Dish;
 
-//          title
-// image
-// total_time
-// ingredients
-// instructions (array of  step ids)
-//     custom method to populate total time
+
