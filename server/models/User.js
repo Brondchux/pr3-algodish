@@ -8,7 +8,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-    unique: true
+    unique: true,
   },
   email: {
     type: String,
@@ -43,9 +43,9 @@ userSchema.pre('save', async function(next) {
     next();
 });
 
-userSchema.methods.isCorrectPassword = async function(password) {
-    return await bcrypt.compare(password, this.password);
-}
+// userSchema.methods.isCorrectPassword = async function(password) {
+//     return await bcrypt.compare(password, this.password);
+// }
 
-const User = mongoose.model('User', userSchema);
-module.exports = User
+const User = mongoose.model("User", userSchema);
+module.exports = User;
