@@ -1,0 +1,12 @@
+header {
+	display: flex;
+	min-height: 20vh;
+}
+
+.logo {
+	flex: 1;
+}
+
+.navbar {
+	flex: 2;
+}
