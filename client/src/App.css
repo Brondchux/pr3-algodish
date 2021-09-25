@@ -1,3 +1,10 @@
+:root {
+	--space-cadet: #1a1b41;
+	--max-blue-green: #17bebb;
+	--eggshell: #f8f2dc;
+	--carmine-mp: #d62246;
+	--jet: #2f2d2e;
+}
 body {
 	background-color: #f8f2dc;
 }

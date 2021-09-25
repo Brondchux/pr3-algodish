@@ -1,17 +1,18 @@
 import "./header.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 	return (
 		<nav>
 			<ul>
 				<li>
-					<a href="##">Create a dish</a>
+					<Link to="/create-dish">Create a dish</Link>
 				</li>
 				<li>
-					<a href="##">Login</a>
+					<Link to="/login">Login</Link>
 				</li>
 				<li>
-					<a href="##">Signup</a>
+					<Link to="/signup">Signup</Link>
 				</li>
 			</ul>
 		</nav>

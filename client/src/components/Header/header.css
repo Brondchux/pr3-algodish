@@ -30,4 +30,29 @@ header {
 
 nav {
 	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+}
+
+nav ul li {
+	flex: 1;
+	text-align: center;
+	margin: 0 1% 0 1%;
+}
+
+nav ul li a {
+	background-color: #1a1b41;
+	color: #ffffff;
+	display: block;
+	border-radius: 20px;
+	padding: 10px 30px;
+	font-size: 1.5rem;
+	font-style: italic;
 }
