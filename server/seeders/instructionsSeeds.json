@@ -1,6 +1,5 @@
 [
   {
-    "title": "Grilled Cheese",
     "steps": [
       {
         "time": 10,
@@ -37,7 +36,6 @@
     ]
   },
   {
-    "title": "Kale Salad",
     "steps": [
       {
         "time": 10,
@@ -58,7 +56,6 @@
     ]
   },
   {
-    "title": "Baked Salmon",
     "steps": [
       {
         "time": 10,
@@ -79,7 +76,6 @@
     ]
   },
   {
-    "title": "Coq au Vin",
     "steps": [
       {
         "time": 10,
@@ -100,7 +96,6 @@
     ]
   },
   {
-    "title": "Egg Fried Rice",
     "steps": [
       {
         "time": 10,

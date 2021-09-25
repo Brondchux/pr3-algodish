@@ -22,6 +22,10 @@ db.once("open", async () => {
           },
         }
       );
+
+        const instructions = await Instructions.create({...instructionsSeeds[i], dish_id: _id});
+
+
     }
   } catch (err) {
     console.process(err);
