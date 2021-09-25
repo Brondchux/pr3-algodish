@@ -4,7 +4,8 @@
 	--eggshell: #f8f2dc;
 	--carmine-mp: #d62246;
 	--jet: #2f2d2e;
+	--plain-white: #ffffff;
 }
 body {
-	background-color: #f8f2dc;
+	background-color: var(--eggshell);
 }
