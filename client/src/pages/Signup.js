@@ -2,7 +2,7 @@ import { Segment, Form, Grid, Message, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import MainButton from "../components/MainButton";
 
-const Login = () => {
+const Signup = () => {
 	return (
 		<Segment basic padded="very">
 			<Grid columns={3}>
@@ -13,22 +13,31 @@ const Login = () => {
 							<div>
 								<Message
 									attached
-									header="Account Login"
-									content="Enter your credentials to login into your account"
+									header="Create Account"
+									content="Fill out the form below to create your account"
 								/>
 								<Form className="attached fluid segment">
+									<Form.Input
+										label="Username"
+										placeholder="Username"
+										type="text"
+									/>
 									<Form.Input label="Email" placeholder="email" type="email" />
 									<Form.Input
 										label="Password"
 										placeholder="password"
 										type="password"
 									/>
-									<MainButton color="blue" title="Login"></MainButton>
+									<Form.Checkbox
+										inline
+										label="I agree to the terms and conditions"
+									/>
+									<MainButton color="blue" title="Create Account"></MainButton>
 								</Form>
 								<Message attached="bottom" warning>
 									<Icon name="user" />
-									New user?&nbsp;
-									<Link to="/signup">Sign up</Link>
+									Already signed up?&nbsp;
+									<Link to="/login">Login here</Link>
 									&nbsp;instead.
 								</Message>
 							</div>
@@ -40,4 +49,4 @@ const Login = () => {
 		</Segment>
 	);
 };
-export default Login;
+export default Signup;
