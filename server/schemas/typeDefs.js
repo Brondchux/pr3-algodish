@@ -39,12 +39,12 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    userDishes(username: String!): [Dish]
-    userHistory(username: String!): [Dish]
-    userFavorites(username: String!): [Dish]
+    userDishes(id: ID!): [Dish]
+    userHistory(id: ID!): [Dish]
+    userFavorites(id: ID!): [Dish]
     allDishes: [Dish]
     dishesByName(title: String!): [Dish]
-    dishById(_id: ID!): Dish
+    dishById(id: ID!): Dish
     fiveRandomDishes: [Dish]
     me: User
   }
