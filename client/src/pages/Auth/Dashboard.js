@@ -11,6 +11,7 @@ import { buttonStyles } from "../../components/MainButton";
 import Carousel from "../../components/Carousel";
 // TODO: Remove me after fetching real dishes from db
 import { testDishList } from "../Home";
+import UserAccount from "../../components/UserAccount";
 
 const Dashboard = () => {
 	return (
@@ -19,10 +20,7 @@ const Dashboard = () => {
 				<Grid columns={2} stackable>
 					<Grid.Row>
 						<Grid.Column>
-							<Header as="h2">
-								<Icon name="user outline"></Icon>
-								Welcome back, Elle!
-							</Header>
+							<UserAccount></UserAccount>
 						</Grid.Column>
 						<Grid.Column>
 							<Link to="create-dish">

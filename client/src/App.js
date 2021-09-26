@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Auth/Dashboard";
+import CreateDish from "./pages/Auth/CreateDish";
 
 const App = () => {
 	return (
@@ -26,6 +27,9 @@ const App = () => {
 				</Route>
 				<Route exact path="/dashboard">
 					<Dashboard></Dashboard>
+				</Route>
+				<Route exact path="/create-dish">
+					<CreateDish></CreateDish>
 				</Route>
 			</main>
 
