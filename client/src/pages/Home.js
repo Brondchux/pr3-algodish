@@ -1,6 +1,8 @@
 import mealImage from "../assets/images/salmon-bg.jpg";
 import SearchBar from "../components/SearchBar";
-import { Grid } from "semantic-ui-react";
+import { Grid, Header, Segment } from "semantic-ui-react";
+import Carousel from "../components/Carousel";
+
 const Home = () => {
 	const customStyle = {
 		wallpaper: {
@@ -19,15 +21,24 @@ const Home = () => {
 		},
 	};
 	return (
-		<div style={customStyle.wallpaper}>
-			<Grid columns={1} style={customStyle.search}>
-				<Grid.Row>
-					<Grid.Column>
-						<SearchBar></SearchBar>
-					</Grid.Column>
-				</Grid.Row>
+		<>
+			<Grid columns={1}>
+				<div style={customStyle.wallpaper}>
+					<Grid.Row style={customStyle.search}>
+						<Grid.Column>
+							<SearchBar></SearchBar>
+						</Grid.Column>
+					</Grid.Row>
+				</div>
 			</Grid>
-		</div>
+			<Segment padded="very">
+				<Header as="h2">Recently added dishes</Header>
+				<Carousel></Carousel>
+
+				<Header as="h2">Mostly cooked dishes</Header>
+				<Carousel></Carousel>
+			</Segment>
+		</>
 	);
 };
 
