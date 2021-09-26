@@ -1,22 +1,15 @@
 import { Grid, Segment } from "semantic-ui-react";
 import DishCard from "../DishCard";
 
-const Carousel = () => (
+const Carousel = ({ dishList }) => (
 	<Segment placeholder raised>
 		<Grid columns={4}>
 			<Grid.Row>
-				<Grid.Column>
-					<DishCard></DishCard>
-				</Grid.Column>
-				<Grid.Column>
-					<DishCard></DishCard>
-				</Grid.Column>
-				<Grid.Column>
-					<DishCard></DishCard>
-				</Grid.Column>
-				<Grid.Column>
-					<DishCard></DishCard>
-				</Grid.Column>
+				{dishList.map((dish) => (
+					<Grid.Column key={dish.id}>
+						<DishCard dish={dish}></DishCard>
+					</Grid.Column>
+				))}
 			</Grid.Row>
 		</Grid>
 	</Segment>
