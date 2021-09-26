@@ -1,4 +1,4 @@
-import { Segment, Form, Checkbox, Grid } from "semantic-ui-react";
+import { Segment, Form, Grid } from "semantic-ui-react";
 import MainButton from "../components/MainButton";
 
 const Login = () => {
@@ -17,9 +17,6 @@ const Login = () => {
 								<Form.Field>
 									<label>Password</label>
 									<input type="password" placeholder="email" />
-								</Form.Field>
-								<Form.Field>
-									<Checkbox label="I agree to the Terms and Conditions" />
 								</Form.Field>
 								<MainButton title="Login"></MainButton>
 							</Form>
