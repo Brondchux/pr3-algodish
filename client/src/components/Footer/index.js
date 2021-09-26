@@ -1,7 +1,12 @@
-import Footer from "./footer.css";
+import "./footer.css";
+import FooterCopyright from "./footerCopyright";
 
 const Footer = () => {
-  return <footer></footer>;
+  return (
+    <footer>
+      <FooterCopyright></FooterCopyright>
+    </footer>
+  );
 };
 
 export default Footer;

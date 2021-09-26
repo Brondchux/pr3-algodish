@@ -1,1 +1,5 @@
 /* Create background for footer section, same red as header, centered */
+
+.test {
+  background-color: chartreuse;
+}
