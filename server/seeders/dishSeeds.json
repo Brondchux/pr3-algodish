@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Grilled Cheese",
+    "dishAuthor": "Brian Kernighan",
+    "image": "https://natashaskitchen.com/wp-content/uploads/2021/08/Grilled-Cheese-Sandwich-3-728x1092.jpg",
+    "total_time": "20",
+    "ingredients": ["bread", "cheese", "butter"]
+  },
+  {
+    "title": "Kale Salad",
+    "dishAuthor": "Max Kanat-Alexander",
+    "image": "https://www.jessicagavin.com/wp-content/uploads/2021/03/lemon-kale-salad-13-1200.jpg",
+    "total_time": "15",
+    "ingredients": ["kale", "tomatoes", "almonds", "parmesan cheese"]
+  },
+  {
+    "title": "Baked Salmon",
+    "dishAuthor": "Why The Lucky Stiff",
+    "image": "https://www.jessicagavin.com/wp-content/uploads/2019/01/baked-salmon-8-1200.jpg",
+    "total_time": "60",
+    "ingredients": ["salmon", "lemon", "chives", "salt", "pepper", "dill"]
+  },
+  {
+    "title": "Coq au Vin",
+    "dishAuthor": "Kent Beck",
+    "image": "https://www.recipetineats.com/wp-content/uploads/2016/09/Coq-au-Vin_00.jpg",
+    "total_time": "120",
+    "ingredients": [
+      "chicken",
+      "red wine",
+      "pearl onions",
+      "thyme",
+      "bay leaf",
+      "bacon",
+      "flour",
+      "beef stock",
+      "tomato paste",
+      "butter",
+      "mushrooms",
+      "parsley"
+    ]
+  },
+  {
+    "title": "Egg Fried Rice",
+    "dishAuthor": "Edward V. Berard",
+    "image": "https://i0.wp.com/seonkyounglongest.com/wp-content/uploads/2020/02/Egg-Fried-Rice-2.jpg?fit=1300%2C867&ssl=1",
+    "total_time": "25",
+    "ingredients": [
+      "leftover rice",
+      "cooking oil",
+      "soy sauce",
+      "4 eggs, beaten",
+      "soy sauce"
+    ]
+  }
+]
