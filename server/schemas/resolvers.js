@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Dish, Instructions } = require('../models');
 const { signToken } = require('../utils/auth')
 
 /*==================
@@ -42,6 +42,12 @@ const resolvers = {
         },
         allDishes: async () => {
             return await Dish.find();
+        },
+        dishById: async (_, args) => {
+            return await Dish.findById(args.id).populate('instructions');
+        },
+        fiveRandomDishes: async () => {
+            
         }
     },
 };
