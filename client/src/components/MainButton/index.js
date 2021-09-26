@@ -1,13 +1,15 @@
 import { Button } from "semantic-ui-react";
+
+export const buttonStyles = {
+	algoButton: {
+		backgroundColor: "#1a1b41",
+		color: "#ffffff",
+	},
+};
+
 const MainButton = ({ title }) => {
-	const customStyles = {
-		loginButton: {
-			backgroundColor: "#1a1b41",
-			color: "#ffffff",
-		},
-	};
 	return (
-		<Button type="submit" size="large" style={customStyles.loginButton}>
+		<Button type="submit" size="large" style={buttonStyles.algoButton}>
 			{title}
 		</Button>
 	);
