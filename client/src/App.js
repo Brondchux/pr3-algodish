@@ -1,25 +1,26 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
-function App() {
+const App = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<h1>
-					<center>Hello AlgoDish!</center>
-				</h1>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
+		<BrowserRouter>
+			{/* display header */}
+			<Header></Header>
+
+			{/* display requested pages */}
+			<main>
+				<Route exact path="/">
+					<Home></Home>
+				</Route>
+				<Route exact path="/login">
+					<Login></Login>
+				</Route>
+			</main>
+		</BrowserRouter>
 	);
-}
+};
 
 export default App;
