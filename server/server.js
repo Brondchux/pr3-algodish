@@ -3,6 +3,7 @@ const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const app = express();
 const { typeDefs, resolvers } = require("./schemas");
+const { authMiddleware } = require('./utils/auth');
 
 const db = require('./config/connection');
 
@@ -11,6 +12,7 @@ const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: authMiddleware,
 });
 
 server.applyMiddleware({ app });
@@ -26,9 +28,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-app.listen(PORT, (err) => {
-  console.log("Listening on port:", PORT);
-});
+// app.listen(PORT, (err) => {
+//   console.log("Listening on port:", PORT);
+// });
 
 db.once('open', () => {
   app.listen(PORT, () => {
