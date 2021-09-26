@@ -30,3 +30,7 @@ main {
 .white-color {
 	color: var(--plain-white);
 }
+.algo-button {
+	background-color: var(--space-cadet);
+	color: var(--plain-white);
+}
