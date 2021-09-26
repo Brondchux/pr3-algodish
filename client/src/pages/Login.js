@@ -11,10 +11,6 @@ const Login = () => {
 						<Segment raised>
 							<Form>
 								<Form.Field>
-									<label>Username</label>
-									<input placeholder="username" />
-								</Form.Field>
-								<Form.Field>
 									<label>Email</label>
 									<input placeholder="email" />
 								</Form.Field>
