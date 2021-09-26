@@ -56,9 +56,6 @@ const typeDefs = gql`
     addInstructions(dishId: ID!): Dish
     addStep(instructionId: ID!, time:Int, step: String!): Dish
     
-    
-    
-
   }
 `;
 
