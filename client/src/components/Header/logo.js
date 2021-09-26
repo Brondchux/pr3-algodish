@@ -6,7 +6,7 @@ const Logo = () => {
 		<div className="logo">
 			<Link to="/">
 				<h1>
-					<i className="fas fa-utensils"></i> algo
+					<i className="utensils icon"></i> algo
 					<span className="dish">Dish</span>
 				</h1>
 			</Link>
