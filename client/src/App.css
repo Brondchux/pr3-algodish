@@ -9,3 +9,6 @@
 body {
 	background-color: var(--eggshell);
 }
+main {
+	min-height: 75vh;
+}

@@ -11,9 +11,11 @@ const App = () => {
 			<Header></Header>
 
 			{/* display requested pages */}
-			<Route exact path="/">
-				<Home></Home>
-			</Route>
+			<main>
+				<Route exact path="/">
+					<Home></Home>
+				</Route>
+			</main>
 		</BrowserRouter>
 	);
 };
