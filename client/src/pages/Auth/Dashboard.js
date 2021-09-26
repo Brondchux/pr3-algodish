@@ -6,6 +6,7 @@ import {
 	Icon,
 	Divider,
 } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import { buttonStyles } from "../../components/MainButton";
 import Carousel from "../../components/Carousel";
 // TODO: Remove me after fetching real dishes from db
@@ -24,13 +25,21 @@ const Dashboard = () => {
 							</Header>
 						</Grid.Column>
 						<Grid.Column>
-							<Button fluid style={buttonStyles.algoButton} size="massive">
-								<Icon name="plus"></Icon>
-								Create new dish
-							</Button>
+							<Link to="create-dish">
+								<Button
+									fluid
+									style={buttonStyles.algoButton}
+									circular
+									size="huge"
+								>
+									<Icon name="plus"></Icon>
+									Create new dish
+								</Button>
+							</Link>
 						</Grid.Column>
 					</Grid.Row>
 				</Grid>
+				<Divider horizontal></Divider>
 
 				<Divider horizontal></Divider>
 				<Header as="h2">
