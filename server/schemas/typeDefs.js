@@ -21,13 +21,13 @@ const typeDefs = gql`
 
   type Instructions {
     _id: ID
-    total_time: Number
+    total_time: Int
     steps: [Step]
   }
 
   type Step {
     _id: ID
-    time: Number
+    time: Int
     step: String
   }
 
@@ -43,18 +43,32 @@ const typeDefs = gql`
     userHistory(username: String!): [Dish]
     userFavorites(username: String!): [Dish]
     allDishes: [Dish]
-    fiveRandomDished: [Dish]
+    dishesByName(title: String!): [Dish]
+    dishById(_id: ID!): Dish
+    fiveRandomDishes: [Dish]
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    #add a dish
-    #add a set of instructions
-    #delete a dish
-    #save a favorite dish
+    uploadDish(title: String!, image: String!, ingredients: [String]!): Dish
+    addInstructions(dishId: ID!): Dish
+    addStep(instructionId: ID!, time:Int, step: String!): Dish
+    
+    
+    
+
   }
 `;
 
 module.exports = typeDefs;
+
+
+// addDishToFavorites() 
+// addDishToHistory
+// removeDishFromFavorites
+// deleteDish
+// #add a set of instructions
+// #delete a dish
+// #save a favorite dish
