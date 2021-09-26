@@ -32,10 +32,14 @@ const Home = () => {
 				</div>
 			</Grid>
 			<Segment padded="very">
-				<Header as="h2">Recently added dishes</Header>
+				<Header as="h2">
+					<span className="cadet-color">Recently added dishes</span>
+				</Header>
 				<Carousel></Carousel>
 
-				<Header as="h2">Mostly cooked dishes</Header>
+				<Header as="h2">
+					<span className="cadet-color">Mostly cooked dishes</span>
+				</Header>
 				<Carousel></Carousel>
 			</Segment>
 		</>

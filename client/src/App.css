@@ -12,3 +12,21 @@ body {
 main {
 	min-height: 75vh;
 }
+.cadet-color {
+	color: var(--space-cadet);
+}
+.blue-color {
+	color: var(--max-blue-green);
+}
+.eggshell-color {
+	color: var(--eggshell);
+}
+.carmine-color {
+	color: var(--carmine-mp);
+}
+.jet-color {
+	color: var(--jet);
+}
+.white-color {
+	color: var(--plain-white);
+}
