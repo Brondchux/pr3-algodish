@@ -28,11 +28,18 @@ const resolvers = {
             //     populate: 'instructions',
             // });
         },
-        userDishes: async (_, args, context) => {
-            const {created_dishes} = await User.findById(args.id, 'created_dishes').populate('created_dishes');
+        userDishes: async (_, args) => {
+            const { created_dishes } = await User.findById(args.id, 'created_dishes').populate('created_dishes');
             return created_dishes
         },
-        
+        userHistory: async (_, args) => {d
+            const { history_dishes } = await User.findById(args.id, 'history_dishes').populate('history_dishes');
+            return history_dishes
+        },
+        userFavorites: async (_, args) => {d
+            const { favorite_dishes } = await User.findById(args.id, 'favorite_dishes').populate('favorite_dishes');
+            return favorite_dishes 
+        },
     },
 };
 
