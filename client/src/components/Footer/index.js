@@ -1,9 +1,7 @@
-import "./footer.css";
+import Footer from "./footer.css";
 
-const Header = () => {
-	return (
-		<footer>
-			
-		</footer>
-	);
+const Footer = () => {
+  return <footer></footer>;
 };
+
+export default Footer;
