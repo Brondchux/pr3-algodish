@@ -47,7 +47,10 @@ const resolvers = {
             return await Dish.findById(args.id).populate('instructions');
         },
         fiveRandomDishes: async () => {
-            
+            return
+        },
+        lastFiveDishes: async () => {
+            return await Dish.find({}, null, {sort: {_id: -1 }, limit: 5});
         }
     },
 };
