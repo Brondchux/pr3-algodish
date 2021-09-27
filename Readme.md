@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This application will provide its users an enumeration of ingredients needed and step by step recipe on how to prepare any type of dish like a pro! This project will be developed using GraphQL, Apollo Server, MongoDB, Mongoose, Git, ReactJS, NPM Modules, HTML5, Semantic UI. For live deployement I will be using, Heroku and Mongodb Atlas.
+Thank you for taking the time to view our application! This application will provide its users an enumeration of ingredients needed and step by step recipe on how to prepare any type of dish like a pro! This project will be developed using GraphQL, Apollo Server, MongoDB, Mongoose, Git, ReactJS, NPM Modules, HTML5, Semantic UI. For live deployement, we will be using Heroku and Mongodb Atlas.
 
 ---
 
@@ -70,14 +70,14 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 
 The following photo(s) shows a preview of the application in production mode
 
-![Animations shows a user searching for recipes to food they'll like to prepare today.](./public/assets/images/coming-soon.jpg)
+![Animations shows a user searching for recipes to food they'll like to prepare today.](./public/assets/images/ipad-view-algodish.png)
 
 ---
 
 ## Useful Links
 
-1. 🗂 [Click me to view github repository for this project](https://github.com/Brondchux/pr3-algodish/)
-2. 🌍 [Click me to view deployed application via heroku pages](https://heroku.com/)
+1. 🗂 View the repository on [Github](https://github.com/Brondchux/pr3-algodish/)
+2. 🌍 This app is deployed with [Heroku](https://live-pr3-algodish.herokuapp.com/)
 
 ---
 
@@ -106,9 +106,9 @@ Nafis Rahman [@naf15](https://github.com/naf15)
 
 ## Credits
 
-Appreciations to Ben 🙌🏾 of [Columbia University, Software Engineering Coding Boot Camp](https://bootcamp.cvn.columbia.edu/coding/landing-ftpt/?s=Google-Brand&msg_cv_scta=4&msg_cv_stbn=1&msg_cv_fcta=1&dki=Learn%20Coding&pkw=%2Bcolumbia%20%2Bcoding%20%2Bbootcamp&pcrid=471112563836&pmt=b&utm_source=google&utm_medium=cpc&utm_campaign=GGL%7CCOLUMBIA-UNIVERSITY%7CSEM%7CCODING%7C-%7COFL%7CTIER-1%7CALL%7CBRD%7CBMM%7CCore%7CBootcamp&utm_term=%2Bcolumbia%20%2Bcoding%20%2Bbootcamp&s=google&k=%2Bcolumbia%20%2Bcoding%20%2Bbootcamp&utm_adgroupid=111600049635&utm_locationphysicalms=9067609&utm_matchtype=b&utm_network=g&utm_device=c&utm_content=471112563836&utm_placement=&gclid=CjwKCAjwlrqHBhByEiwAnLmYUA8CIItksRJF6IT6XMX8WOOJBO-jtCRkzXZhI2gvsZrFEpYdRXy54RoC6jQQAvD_BwE&gclsrc=aw.ds) for being our tutor in this bootcamp.
+Appreciations to Ben 🙌🏾 of [Columbia University, Software Engineering Coding Boot Camp](https://bootcamp.cvn.columbia.edu/coding/landing-ftpt/?s=Google-Brand&msg_cv_scta=4&msg_cv_stbn=1&msg_cv_fcta=1&dki=Learn%20Coding&pkw=%2Bcolumbia%20%2Bcoding%20%2Bbootcamp&pcrid=471112563836&pmt=b&utm_source=google&utm_medium=cpc&utm_campaign=GGL%7CCOLUMBIA-UNIVERSITY%7CSEM%7CCODING%7C-%7COFL%7CTIER-1%7CALL%7CBRD%7CBMM%7CCore%7CBootcamp&utm_term=%2Bcolumbia%20%2Bcoding%20%2Bbootcamp&s=google&k=%2Bcolumbia%20%2Bcoding%20%2Bbootcamp&utm_adgroupid=111600049635&utm_locationphysicalms=9067609&utm_matchtype=b&utm_network=g&utm_device=c&utm_content=471112563836&utm_placement=&gclid=CjwKCAjwlrqHBhByEiwAnLmYUA8CIItksRJF6IT6XMX8WOOJBO-jtCRkzXZhI2gvsZrFEpYdRXy54RoC6jQQAvD_BwE&gclsrc=aw.ds) and all of our teammates for making this all possible. for being our tutor in this bootcamp.
 
-Special thanks to [Google](https://www.google.com) for helping me find the accurate answers to my questions in a very timely manner..
+Special thanks to [Google](https://www.google.com) for helping us find the accurate answers to our questions in a very timely manner..
 
 ---
 

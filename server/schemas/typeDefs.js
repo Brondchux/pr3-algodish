@@ -14,6 +14,7 @@ const typeDefs = gql`
     _id: ID
     title: String
     dishAuthor: String
+    decription: String
     image: String
     ingredients: [String]
     instructions: Instructions!
@@ -39,13 +40,14 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    userDishes(username: String!): [Dish]
-    userHistory(username: String!): [Dish]
-    userFavorites(username: String!): [Dish]
+    userDishes(id: ID!): [Dish]
+    userHistory(id: ID!): [Dish]
+    userFavorites(id: ID!): [Dish]
     allDishes: [Dish]
     dishesByName(title: String!): [Dish]
-    dishById(_id: ID!): Dish
+    dishById(id: ID!): Dish
     fiveRandomDishes: [Dish]
+    lastFiveDishes: [Dish]
     me: User
   }
 
@@ -56,9 +58,6 @@ const typeDefs = gql`
     addInstructions(dishId: ID!): Dish
     addStep(instructionId: ID!, time:Int, step: String!): Dish
     
-    
-    
-
   }
 `;
 
