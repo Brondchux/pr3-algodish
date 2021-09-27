@@ -15,12 +15,25 @@ const Dish = () => {
 			borderRadius: "10px",
 		},
 	};
+
 	const { id: dishId } = useParams();
 	const { loading, data } = useQuery(FETCH_WHOLE_DISH_BY_ID, {
 		variables: { id: dishId },
 	});
-	const { title, image, username, description, cook_time } =
-		data?.dishById || {};
+
+	const {
+		title,
+		image,
+		username,
+		description,
+		ingredients,
+		recipe,
+		cook_time,
+	} = data?.dishById || {};
+
+	const ingredientsList = ingredients ? ingredients.split(",") : [];
+	const recipeList = recipe ? recipe.split(".") : [];
+
 	return (
 		<Segment basic padded="very">
 			{loading ? (
@@ -45,27 +58,31 @@ const Dish = () => {
 					<Message>
 						<Message.Header>Ingredients</Message.Header>
 						<Segment>
-							<List divided inverted relaxed>
-								<List.Item>
-									<List.Content>
-										<List.Header>Snickerdoodle</List.Header>
-										An excellent companion
-									</List.Content>
-								</List.Item>
-							</List>
+							{ingredientsList.map((ingredient, index) => (
+								<List key={index} divided inverted relaxed>
+									<List.Item>
+										<List.Content>
+											{index + 1}. {ingredient}
+										</List.Content>
+									</List.Item>
+								</List>
+							))}
 						</Segment>
 					</Message>
 					<Message>
 						<Message.Header>Recipe</Message.Header>
 						<Segment>
-							<List divided inverted relaxed>
-								<List.Item>
-									<List.Content>
-										<List.Header>Paulo</List.Header>
-										He's also a dog
-									</List.Content>
-								</List.Item>
-							</List>
+							{recipeList
+								.slice(0, recipeList.length - 1)
+								.map((recipe, index) => (
+									<List key={index} divided inverted relaxed>
+										<List.Item>
+											<List.Content>
+												{index + 1}. {recipe}
+											</List.Content>
+										</List.Item>
+									</List>
+								))}
 						</Segment>
 					</Message>
 					<Message>
