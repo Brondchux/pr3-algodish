@@ -4,7 +4,7 @@ import MainButton from "../components/MainButton";
 
 const Signup = () => {
   return (
-    <Segment basic padded="very">
+    <Segment basic>
       <Divider horizontal></Divider>
       <Grid columns={3} stackable>
         <Grid.Row>
