@@ -15,7 +15,10 @@ const dishSchema = new Schema({
   image: {
     type: String,
   },
-
+  description: {
+    type: String,
+    trim: true,
+  },
   ingredients: [
     {
       type: String,
