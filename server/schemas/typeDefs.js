@@ -20,7 +20,7 @@ const typeDefs = gql`
     ingredients: String
     recipe: String
     instructions: Instructions
-    cookTime: Int
+    cook_time: Int
   }
 
   type Instructions {

@@ -67,7 +67,7 @@ const resolvers = {
         return { token, user };
       },
 
-      uploadDish: async (_,{ title, username, description, image, ingredients, recipe }, context) => {
+      uploadDish: async (_,{ title, username, description, image, ingredients, recipe, cook_time }, context) => {
         if (context.user) {
           const newDish = new Dish({
             title,
@@ -76,6 +76,7 @@ const resolvers = {
             image,
             ingredients,
             recipe,
+            cook_time
           });
 
           await User.findByIdAndUpdate(context.user.id, {
