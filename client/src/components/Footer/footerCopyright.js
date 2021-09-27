@@ -1,9 +1,7 @@
-import FooterCopyright from "./index";
+// import Footer from "./index";
 
 const FooterCopyright = () => {
-  return (
-    <FooterCopyright>© 2021 AlgoDish. All Rights Reserved.</FooterCopyright>
-  );
+  return <p className="test">© 2021 AlgoDish. All Rights Reserved.</p>;
 };
 
 export default FooterCopyright;
