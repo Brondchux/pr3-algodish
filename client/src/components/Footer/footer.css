@@ -6,7 +6,4 @@ footer {
   width: 100%;
   background-color: var(--carmine-mp);
   border-bottom: solid 10px var(--space-cadet);
-
-.test {
-  background-color: chartreuse;
 }
