@@ -14,7 +14,7 @@ const typeDefs = gql`
     _id: ID
     title: String
     dishAuthor: String
-    decription: String
+    description: String
     image: String
     ingredients: String
     recipe: String
@@ -58,15 +58,13 @@ const typeDefs = gql`
     
     uploadDish(title: String!, dishAuthor: String!, decription: String!, image: String, ingredients: String!, recipe: String!): Dish
     addInstructions(dishId: ID!): Dish
-    addStep(instructionId: ID!, time:Int, step: String!): Dish
-    
+    addStep(instructionId: ID!, time: Int, step: String!): Dish
   }
 `;
 
 module.exports = typeDefs;
 
-
-// addDishToFavorites() 
+// addDishToFavorites()
 // addDishToHistory
 // removeDishFromFavorites
 // deleteDish
