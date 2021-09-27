@@ -2,8 +2,8 @@ import { Header, Icon, Segment } from "semantic-ui-react";
 import Banner from "../components/Banner";
 import Carousel from "../components/Carousel";
 import spagettiImg from "../assets/images/spagetti.jpg";
-import { useQuery } from "@apollo/client";
 import { FETCH_ALL_DISHES } from "../utils/queries";
+import { useQuery } from "@apollo/client";
 
 const generateRandomId = () => Math.floor(Math.random() * 99);
 export let testDishList = () => [
@@ -43,8 +43,8 @@ export let testDishList = () => [
 
 const Home = () => {
 	const { loading, data } = useQuery(FETCH_ALL_DISHES);
-	testDishList = data?.allDishes || [];
-	console.log(testDishList);
+	console.log(data);
+	testDishList = () => data?.allDishes || testDishList;
 	return (
 		<>
 			<Segment basic>
