@@ -1,15 +1,18 @@
 import { Card, Icon } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import "./dishCard.css";
 
 const DishCard = ({ dish }) => {
-	const { image, title, username, cook_time, description } = dish;
+	const { _id: dishId, image, title, username, cook_time, description } = dish;
 
 	return (
 		<Card fluid>
-			<div
-				className="dishImage"
-				style={{ backgroundImage: `url(${image})` }}
-			></div>
+			<Link to={`/dish/${dishId}`}>
+				<div
+					className="dishImage"
+					style={{ backgroundImage: `url(${image})` }}
+				></div>
+			</Link>
 			<Card.Content>
 				<Card.Header>{title}</Card.Header>
 				<br />
