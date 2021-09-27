@@ -1,7 +1,6 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { User, Dish, Instructions } = require('../models');
-const { signToken } = require('../utils/auth')
-
+const { AuthenticationError } = require("apollo-server-express");
+const { User, Dish, Instructions } = require("../models");
+const { signToken } = require("../utils/auth");
 
 /*==================
 
@@ -45,42 +44,48 @@ const resolvers = {
         }
     },
     Mutation: {
-        addUser: async (_, { username, email, password }) => {
-            const user = await User.create({ username, email, password });
-            const token = signToken(user);
-            return { token, user };
-        },
-        login: async (_, { email, password }) => {
-            const user = await User.findOne({ email });
-        
-            if (!user) {
-                throw new AuthenticationError('No user found with this email address');
-            }
-        
-            const correctPw = await user.isCorrectPassword(password);
-        
-            if (!correctPw) {
-                throw new AuthenticationError('Incorrect credentials');
-            }
-        
-            const token = signToken(user);
-        
-            return { token, user };
-        },
+      addUser: async (_, { username, email, password }) => {
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
+        return { token, user };
+      },
+      login: async (_, { email, password }) => {
+        const user = await User.findOne({ email });
 
-        uploadDish: async (_, { title, dishAuthor, description, image, ingredients, recipe }, context) => {
-            if (context.user) {
-                const newDish = new Dish({ title, dishAuthor, description, image, ingredients, recipe });
-
-                await User.findByIdAndUpdate(context.user.id, {
-                    $push: {created_dishes: newDish}
-                })
-
-                return newDish; 
-            };
+        if (!user) {
+          throw new AuthenticationError("No user found with this email address");
         }
-    }
 
+        const correctPw = await user.isCorrectPassword(password);
+
+        if (!correctPw) {
+          throw new AuthenticationError("Incorrect credentials");
+        }
+
+        const token = signToken(user);
+
+        return { token, user };
+      },
+
+      uploadDish: async (_,{ title, username, description, image, ingredients, recipe }, context) => {
+        if (context.user) {
+          const newDish = new Dish({
+            title,
+            username,
+            description,
+            image,
+            ingredients,
+            recipe,
+          });
+
+          await User.findByIdAndUpdate(context.user.id, {
+            $push: { created_dishes: newDish },
+          });
+
+          return newDish;
+        }
+      },
+  },
 };
 
 module.exports = resolvers;
