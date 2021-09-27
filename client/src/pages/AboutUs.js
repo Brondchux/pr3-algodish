@@ -1,5 +1,3 @@
-import Footer from "../compontent/Footer/";
-
 const AboutUs = () => {
   return (
     <p>
