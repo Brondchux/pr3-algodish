@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 //Get all dishes from the database
 export const FETCH_ALL_DISHES = gql`
-  {
+  query allDishes {
     allDishes {
       _id
       title
@@ -33,6 +33,9 @@ export const FETCH_DISH_BY_ID = gql`
 
 //Get all dishes by user ID (created_dishes)
 export const FETCH_CREATED_DISHES = gql``;
+
+//Get dishes by name
+export const FETCH_DISH_BY_NAME = gql``;
 
 // Dish _id for "Grilled Cheese"
 // 6151cdb5d8d6a34560880263
