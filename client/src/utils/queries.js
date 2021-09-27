@@ -6,10 +6,10 @@ export const FETCH_ALL_DISHES = gql`
     allDishes {
       _id
       title
-      dishAuthor
+      username
       image
       description
-      cookTime
+      cook_time
     }
   }
 `;
@@ -20,10 +20,10 @@ export const FETCH_DISH_BY_ID = gql`
     dishById(id: $id) {
       _id
       title
-      dishAuthor
+      username
       image
       description
-      cookTime
+      cook_time
     }
   }
 `;
@@ -32,11 +32,12 @@ export const FETCH_DISH_BY_ID = gql`
 export const FETCH_WHOLE_DISH_BY_ID = gql`
   query dishById($id: ID!) {
     dishById(id: $id) {
+      _id
       title
-      dishAuthor
+      username
       image
       description
-      cookTime
+      cook_time
       ingredients
       recipe
     }
@@ -47,11 +48,12 @@ export const FETCH_WHOLE_DISH_BY_ID = gql`
 export const FETCH_CREATED_DISHES = gql`
   query userDishes($id: ID!) {
     userDishes(id: $id) {
+      _id
       title
-      dishAuthor
+      username
       image
       description
-      cookTime
+      cook_time
       ingredients
     }
   }
@@ -61,24 +63,26 @@ export const FETCH_CREATED_DISHES = gql`
 export const FETCH_FOUR_RANDOM_DISHES = gql`
   query fourRandomDishes {
     fourRandomDishes {
+      _id
       title
-      dishAuthor
+      username
       image
       description
-      cookTime
+      cook_time
     }
   }
 `;
 
 //last five dishes
 export const FETCH_LAST_FOUR_DISHES = gql`
-  query lastFiveDishes {
-    lastFiveDishes {
+  query lastFourDishes {
+    lastFourDishes {
+      _id
       title
-      dishAuthor
+      username
       image
       description
-      cookTime
+      cook_time
     }
   }
 `;
@@ -87,11 +91,12 @@ export const FETCH_LAST_FOUR_DISHES = gql`
 export const FETCH_DISH_BY_NAME = gql`
   query dishesByName($title: String!) {
     dishesByName(title: $title) {
+      _id
       title
-      dishAuthor
+      username
       image
       description
-      cookTime
+      cook_time
     }
   }
 `;
@@ -102,6 +107,17 @@ export const FETCH_USERS = gql`
     users {
       _id
       username
+    }
+  }
+`;
+
+//Get user by ID
+export const FETCH_USER_BY_ID = gql`
+  query userById($id: ID!) {
+    userById(id: $id) {
+      _id
+      username
+      email
     }
   }
 `;

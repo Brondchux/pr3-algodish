@@ -43,6 +43,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
+    userById(id: ID!): User
     userDishes(id: ID!): [Dish]
     userHistory(id: ID!): [Dish]
     userFavorites(id: ID!): [Dish]
@@ -57,8 +58,16 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    
-    uploadDish(title: String!, username: String!, decription: String!, image: String, ingredients: String!, recipe: String!): Dish
+
+    uploadDish(
+      title: String!
+      username: String!
+      description: String!
+      image: String
+      ingredients: String!
+      recipe: String!
+      cook_time: Int
+    ): Dish
     addInstructions(dishId: ID!): Dish
     addStep(instructionId: ID!, time: Int, step: String!): Dish
   }
