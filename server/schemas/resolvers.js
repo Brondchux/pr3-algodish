@@ -55,17 +55,22 @@ const resolvers = {
     dishById: async (_, args) => {
       return await Dish.findById(args.id).populate("instructions");
     },
-    fiveRandomDishes: async () => {
-      return await Dish.find({}, null, { $sample: { size: 3 } });
+    fourRandomDishes: async () => {
+      return await Dish.aggregate([{ $sample: { size: 4 } }]);
     },
     lastFourDishes: async () => {
       return await Dish.find({}, null, { sort: { _id: -1 }, limit: 4 });
     },
-    // dishesByName: async (_, args) => {
-    //     const search =  args.title.toLowerCase()
-    //     return await Dish.find({ title: { $regex: '*' + args.title + '*' } });
-    // }
+    dishesByName: async (_, args) => {
+      const search = args.title.toLowerCase();
+      console.log(search);
+      return await Dish.find({ title: { $regex: search } });
+    },
   },
+  // dishesByName: async (_, args) => {
+  //     const search =  args.title.toLowerCase()
+  //     return await Dish.find({ title: { $regex: '*' + args.title + '*' } });
+  // }
   Mutation: {
     addUser: async (_, { username, email, password }) => {
       const user = await User.create({ username, email, password });

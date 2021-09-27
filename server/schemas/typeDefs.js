@@ -47,7 +47,7 @@ const typeDefs = gql`
     allDishes: [Dish]
     dishesByName(title: String!): [Dish]
     dishById(id: ID!): Dish
-    fiveRandomDishes: [Dish]
+    fourRandomDishes: [Dish]
     lastFourDishes: [Dish]
     me: User
   }
