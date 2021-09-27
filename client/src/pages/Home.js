@@ -43,8 +43,8 @@ export let testDishList = () => [
 
 const Home = () => {
 	const { loading, data } = useQuery(FETCH_ALL_DISHES);
-	console.log(data);
-	testDishList = data?.allDishes || testDishList;
+	testDishList = data?.allDishes || [];
+	console.log(testDishList);
 	return (
 		<>
 			<Segment basic>
