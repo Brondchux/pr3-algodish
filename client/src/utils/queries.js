@@ -15,8 +15,19 @@ export const FETCH_ALL_DISHES = gql`
 //Need a query dish by _id
 
 export const FETCH_DISH_BY_ID = gql`
-  {
-    dishById
+  query dishById($id: ID!) {
+    dishById(id: $id) {
+      _id
+      title
+      dishAuthor
+      image
+      ingredients
+      instructions {
+        steps {
+          step
+        }
+      }
+    }
   }
 `;
 
