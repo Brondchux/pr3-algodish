@@ -10,6 +10,36 @@ const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN);
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+    // console.log("Name: ", name, " Value: ", value);
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    // clear form values
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <Segment basic>
       <Divider horizontal></Divider>
@@ -24,12 +54,25 @@ const Login = (props) => {
                   header="Account Login"
                   content="Enter your credentials to login into your account"
                 />
-                <Form className="attached fluid segment">
-                  <Form.Input label="Email" placeholder="email" type="email" />
+                <Form
+                  className="attached fluid segment"
+                  onSubmit={handleFormSubmit}
+                >
+                  <Form.Input
+                    label="Email"
+                    placeholder="email"
+                    type="email"
+                    name="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                  />
                   <Form.Input
                     label="Password"
                     placeholder="password"
                     type="password"
+                    name="password"
+                    value={formState.password}
+                    onChange={handleChange}
                   />
                   <MainButton color="blue" title="Login"></MainButton>
                 </Form>
