@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Dish, Instructions } = require('../models');
 const { signToken } = require('../utils/auth')
+const escapeStringRegexp = require('escape-string-regexp');
 
 /*==================
 
@@ -47,10 +48,14 @@ const resolvers = {
             return await Dish.findById(args.id).populate('instructions');
         },
         fiveRandomDishes: async () => {
-            return
+            return await Dish.find({}, null, {$sample: {size: 5}});
         },
         lastFiveDishes: async () => {
             return await Dish.find({}, null, {sort: {_id: -1 }, limit: 5});
+        },
+        dishesByName: async (_, args) => {
+            const $regex = escapeStringRegexp(args.title);
+            return await Dish.find({ title: { $regex } });
         }
     },
 };
