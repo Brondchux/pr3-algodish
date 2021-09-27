@@ -32,7 +32,16 @@ export const FETCH_DISH_BY_ID = gql`
 `;
 
 //Get all dishes by user ID (created_dishes)
-export const FETCH_CREATED_DISHES = gql``;
+export const FETCH_CREATED_DISHES = gql`
+  query userDishes($id: ID!) {
+    userDishes(id: $id) {
+      title
+      dishAuthor
+      ingredients
+      image
+    }
+  }
+`;
 
 //Get dishes by name
 export const FETCH_DISH_BY_NAME = gql``;
@@ -41,7 +50,11 @@ export const FETCH_DISH_BY_NAME = gql``;
 // 6151cdb5d8d6a34560880263
 
 //Get all users
-export const FETCH_USERS = gql``;
-
-//Get users by id
-export const FETCH_USER_BY_ID = gql``;
+export const FETCH_USERS = gql`
+  query users {
+    users {
+      _id
+      username
+    }
+  }
+`;
