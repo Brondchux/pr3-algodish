@@ -2,7 +2,7 @@ import { Card, Icon } from "semantic-ui-react";
 import "./dishCard.css";
 
 const DishCard = ({ dish }) => {
-	const { image, title, username, cookTime, description } = dish;
+	const { image, title, username, cook_time, description } = dish;
 
 	return (
 		<Card fluid>
@@ -28,7 +28,7 @@ const DishCard = ({ dish }) => {
 			</Card.Content>
 			<Card.Content extra>
 				<span>
-					<Icon name="clock outline" /> Cook time {cookTime} mins
+					<Icon name="clock outline" /> Cook time {cook_time} mins
 				</span>
 			</Card.Content>
 		</Card>

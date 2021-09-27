@@ -9,8 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { buttonStyles } from "../../components/MainButton";
 import Carousel from "../../components/Carousel";
-// TODO: Remove me after fetching real dishes from db
-import { testDishList } from "../Home";
+import TestDishes from "../../components/TestDishes";
 import UserAccount from "../../components/UserAccount";
 
 const Dashboard = () => {
@@ -43,13 +42,13 @@ const Dashboard = () => {
 				<Header as="h2">
 					<span className="cadet-color">Dishes you created</span>
 				</Header>
-				<Carousel dishList={testDishList()}></Carousel>
+				<Carousel dishList={TestDishes}></Carousel>
 
 				<Divider horizontal></Divider>
 				<Header as="h2">
 					<span className="cadet-color">Your favourite dishes</span>
 				</Header>
-				<Carousel dishList={testDishList()}></Carousel>
+				<Carousel dishList={TestDishes}></Carousel>
 			</Segment>
 		</Segment>
 	);

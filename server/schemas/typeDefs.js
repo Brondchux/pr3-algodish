@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    password: String
     created_dishes: [Dish]
     favorite_dishes: [Dish]
     history_dishes: [Dish]
@@ -13,12 +14,13 @@ const typeDefs = gql`
   type Dish {
     _id: ID
     title: String
-    dishAuthor: String
+    username: String
     description: String
     image: String
     ingredients: String
     recipe: String
     instructions: Instructions
+    cook_time: Int
   }
 
   type Instructions {
@@ -55,15 +57,8 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-
-    uploadDish(
-      title: String!
-      dishAuthor: String!
-      decription: String!
-      image: String
-      ingredients: String!
-      recipe: String!
-    ): Dish
+    
+    uploadDish(title: String!, username: String!, decription: String!, image: String, ingredients: String!, recipe: String!): Dish
     addInstructions(dishId: ID!): Dish
     addStep(instructionId: ID!, time: Int, step: String!): Dish
   }
