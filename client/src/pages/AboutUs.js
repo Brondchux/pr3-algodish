@@ -1,7 +1,13 @@
 import { Header } from "semantic-ui-react";
 import Footer from "../compontent/Footer/";
+import spagettiImg from "../assets/images/spagetti.jpg";
 
 const AboutUs = () => {
+  <Segment>
+    <Header>
+      <spagettiImg></spagettiImg>
+    </Header>
+  </Segment>;
   return (
     <p>
       It is a pleasure to have you here to explore recipes from around the
@@ -19,7 +25,7 @@ const AboutUs = () => {
       decided to come together and build a recipe helper that can
       algorithmically time the user and creator down to the second to aid them
       along in all steps of the instructional and recreation process. As such,
-      we titled this <strong> The algoDish</strong>, which in future development
+      we titled this<strong> The algoDish</strong>, which in future development
       will run entirely on Machine Learning algorithms to help even the least
       cooking inclined person create a tasty dish. <br /> We're excited to have
       you here, and as we are a work in progress towards perfection, we would
@@ -32,6 +38,9 @@ const AboutUs = () => {
       <strong>Proven, tried, and true, AlgoDish is here for you.</strong>
     </p>
   );
+  <Footer>
+    <FooterCopyright></FooterCopyright>
+  </Footer>;
 };
 
 export default AboutUs;
