@@ -2,6 +2,7 @@ import { Header, Segment } from "semantic-ui-react";
 import Banner from "../components/Banner";
 import Carousel from "../components/Carousel";
 import spagettiImg from "../assets/images/spagetti.jpg";
+import { useQuery } from "@apollo/client";
 
 const generateRandomId = () => Math.floor(Math.random() * 99);
 export const testDishList = () => [
