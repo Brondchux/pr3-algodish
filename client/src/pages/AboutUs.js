@@ -1,13 +1,6 @@
-import { Header } from "semantic-ui-react";
 import Footer from "../compontent/Footer/";
-import spagettiImg from "../assets/images/spagetti.jpg";
 
 const AboutUs = () => {
-  <Segment>
-    <Header>
-      <spagettiImg></spagettiImg>
-    </Header>
-  </Segment>;
   return (
     <p>
       It is a pleasure to have you here to explore recipes from around the
@@ -38,9 +31,6 @@ const AboutUs = () => {
       <strong>Proven, tried, and true, AlgoDish is here for you.</strong>
     </p>
   );
-  <Footer>
-    <FooterCopyright></FooterCopyright>
-  </Footer>;
 };
 
 export default AboutUs;
