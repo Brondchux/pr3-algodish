@@ -48,15 +48,22 @@ const typeDefs = gql`
     dishesByName(title: String!): [Dish]
     dishById(id: ID!): Dish
     fiveRandomDishes: [Dish]
-    lastFiveDishes: [Dish]
+    lastFourDishes: [Dish]
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    
-    uploadDish(title: String!, dishAuthor: String!, decription: String!, image: String, ingredients: String!, recipe: String!): Dish
+
+    uploadDish(
+      title: String!
+      dishAuthor: String!
+      decription: String!
+      image: String
+      ingredients: String!
+      recipe: String!
+    ): Dish
     addInstructions(dishId: ID!): Dish
     addStep(instructionId: ID!, time: Int, step: String!): Dish
   }

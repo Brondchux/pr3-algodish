@@ -43,6 +43,21 @@ export const FETCH_CREATED_DISHES = gql`
   }
 `;
 
+//five random dishes
+export const FETCH_FOUR_RANDOM_DISHES = gql``;
+
+//last five dishes
+export const FETCH_LAST_FOUR_DISHES = gql`
+  query lastFiveDishes {
+    lastFiveDishes {
+      title
+      dishAuthor
+      description
+      ingredients
+    }
+  }
+`;
+
 //Get dishes by name
 export const FETCH_DISH_BY_NAME = gql``;
 
