@@ -13,20 +13,6 @@ const resolvers = {
   Query: {
     users: async () => {
       return await User.find();
-      // , 'favorite_dishes')
-      // , 'favorite_dishes', 'history_dishes')
-      // .populate({
-      //     path: 'created_dishes',
-      //     populate: 'instructions',
-      // },
-      // {
-      //     path: 'favorite_dishes',
-      //     populate: 'instructions',
-      // },
-      // {
-      //     path: 'favorite_dishes',
-      //     populate: 'instructions',
-      // });
     },
     userDishes: async (_, args) => {
       const { created_dishes } = await User.findById(
@@ -55,6 +41,9 @@ const resolvers = {
     dishById: async (_, args) => {
       return await Dish.findById(args.id).populate("instructions");
     },
+    userById: async (_, args) => {
+      return await User.findById(args.id);
+    },
     fourRandomDishes: async () => {
       return await Dish.aggregate([{ $sample: { size: 4 } }]);
     },
@@ -66,10 +55,6 @@ const resolvers = {
       return await Dish.find({ title: { $regex: new RegExp(search, "i") } });
     },
   },
-  // dishesByName: async (_, args) => {
-  //     const search =  args.title.toLowerCase()
-  //     return await Dish.find({ title: { $regex: '*' + args.title + '*' } });
-  // }
   Mutation: {
     addUser: async (_, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -94,27 +79,20 @@ const resolvers = {
       return { token, user };
     },
 
-    // uploadDish(
-    // title: String!,
-    // dishAuthor: String!,
-    // decription: String!,
-    // image: String,
-    // ingredients: [String]!,
-    // instructions: [String]!)
-
     uploadDish: async (
       _,
-      { title, dishAuthor, description, image, ingredients, recipe },
+      { title, username, description, image, ingredients, recipe, cook_time },
       context
     ) => {
       if (context.user) {
         const newDish = new Dish({
           title,
-          dishAuthor,
+          username,
           description,
           image,
           ingredients,
           recipe,
+          cook_time,
         });
 
         await User.findByIdAndUpdate(context.user.id, {
