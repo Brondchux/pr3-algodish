@@ -52,7 +52,11 @@ const Home = () => {
 			</Segment>
 			<Segment basic padded="very">
 				{loading ? (
-					<Icon name="spinner" size="massive"></Icon>
+					<Segment placeholder raised textAlign="center">
+						<Header textAlign="center" size="large">
+							<Icon name="spinner"></Icon>
+						</Header>
+					</Segment>
 				) : (
 					<>
 						<Header as="h2">
@@ -61,7 +65,7 @@ const Home = () => {
 						<Carousel dishList={testDishList()}></Carousel>
 
 						<Header as="h2">
-							<span className="cadet-color">Mostly cooked dishes</span>
+							<span className="cadet-color">Most popular dishes</span>
 						</Header>
 						<Carousel dishList={testDishList()}></Carousel>
 					</>
