@@ -5,3 +5,9 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+.add-ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
