@@ -2,7 +2,6 @@ import { gql } from "@apollo/client";
 
 //Get all dishes from the database
 export const FETCH_ALL_DISHES = gql`
-<<<<<<< HEAD
   query allDishes {
     allDishes {
       _id
@@ -13,17 +12,6 @@ export const FETCH_ALL_DISHES = gql`
       cookTime
     }
   }
-=======
-	query allDishes {
-		allDishes {
-			_id
-			title
-			dishAuthor
-			image
-			description
-		}
-	}
->>>>>>> 7c49279893066fe364129da00b035432339621ae
 `;
 
 //Why is this suddenly not working
