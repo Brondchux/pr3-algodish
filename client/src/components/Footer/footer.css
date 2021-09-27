@@ -1,8 +1,9 @@
-/* Create background for footer section, same red as header, centered */
 footer {
   display: flex;
-  min-height: 2vh;
-  text-align: center;
+  min-height: 10vh;
+  justify-content: center;
+  align-items: center;
+  color: var(--plain-white);
   width: 100%;
   background-color: var(--carmine-mp);
   border-bottom: solid 10px var(--space-cadet);
