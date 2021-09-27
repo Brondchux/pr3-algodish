@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    password: String
     created_dishes: [Dish]
     favorite_dishes: [Dish]
     history_dishes: [Dish]
