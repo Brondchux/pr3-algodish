@@ -66,11 +66,6 @@ const resolvers = {
       return await Dish.find({ title: { $regex: new RegExp(search, "i") } });
     },
   },
-  dishesByName: async (_, args) => {
-    const search = args.title.toLowerCase();
-    console.log(search);
-    return await Dish.find({ title: { $regex: search } });
-  },
   // dishesByName: async (_, args) => {
   //     const search =  args.title.toLowerCase()
   //     return await Dish.find({ title: { $regex: '*' + args.title + '*' } });
