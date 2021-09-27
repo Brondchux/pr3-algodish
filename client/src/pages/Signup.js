@@ -1,10 +1,11 @@
-import { Segment, Form, Grid, Message, Icon } from "semantic-ui-react";
+import { Segment, Form, Grid, Message, Icon, Divider } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import MainButton from "../components/MainButton";
 
 const Signup = () => {
   return (
     <Segment basic padded="very">
+      <Divider horizontal></Divider>
       <Grid columns={3} stackable>
         <Grid.Row>
           <Grid.Column></Grid.Column>
