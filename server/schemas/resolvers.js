@@ -14,20 +14,6 @@ const resolvers = {
     Query: {
         users: async () => {
             return await User.find()
-            // , 'favorite_dishes') 
-            // , 'favorite_dishes', 'history_dishes')
-            // .populate({
-            //     path: 'created_dishes',
-            //     populate: 'instructions',
-            // },
-            // {
-            //     path: 'favorite_dishes',
-            //     populate: 'instructions',
-            // },
-            // {
-            //     path: 'favorite_dishes',
-            //     populate: 'instructions',
-            // });
         },
         userDishes: async (_, args) => {
             const { created_dishes } = await User.findById(args.id, 'created_dishes').populate('created_dishes');
@@ -81,14 +67,6 @@ const resolvers = {
         
             return { token, user };
         },
-
-        // uploadDish(
-            // title: String!, 
-            // dishAuthor: String!, 
-            // decription: String!, 
-            // image: String, 
-            // ingredients: [String]!, 
-            // instructions: [String]!)
 
         uploadDish: async (_, { title, dishAuthor, description, image, ingredients, recipe }, context) => {
             if (context.user) {
