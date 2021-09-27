@@ -13,7 +13,7 @@ const typeDefs = gql`
   type Dish {
     _id: ID
     title: String
-    dishAuthor: String
+    username: String
     description: String
     image: String
     ingredients: String
@@ -56,7 +56,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     
-    uploadDish(title: String!, dishAuthor: String!, decription: String!, image: String, ingredients: String!, recipe: String!): Dish
+    uploadDish(title: String!, username: String!, decription: String!, image: String, ingredients: String!, recipe: String!): Dish
     addInstructions(dishId: ID!): Dish
     addStep(instructionId: ID!, time: Int, step: String!): Dish
   }

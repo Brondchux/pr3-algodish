@@ -7,7 +7,7 @@ const dishSchema = new Schema({
     type: String,
     required: true,
   },
-  dishAuthor: {
+  username: {
     type: String,
     required: true,
     trim: true,
