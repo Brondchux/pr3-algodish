@@ -70,14 +70,14 @@ THEN I am logged out of the site and presented with a menu with the options Sear
 
 The following photo(s) shows a preview of the application in production mode
 
-![Animations shows a user searching for recipes to food they'll like to prepare today.](./public/assets/images/coming-soon.jpg)
+![Animations shows a user searching for recipes to food they'll like to prepare today.](./public/assets/images/ipad-view-algodish.png)
 
 ---
 
 ## Useful Links
 
-1. 🗂 [Click me to view github repository for this project](https://github.com/Brondchux/pr3-algodish/)
-2. 🌍 [Click me to view deployed application via heroku pages](https://heroku.com/)
+1. 🗂 View the repository on [Github](https://github.com/Brondchux/pr3-algodish/)
+2. 🌍 This app is deployed with [Heroku](https://live-pr3-algodish.herokuapp.com/)
 
 ---
 
