@@ -20,7 +20,9 @@ const DishCard = ({ dish }) => {
 				<br />
 				<Card.Meta>
 					<Card.Description>
-						<Icon name="list alternate outline"></Icon> {description}
+						<div className="add-ellipsis">
+							<Icon name="list alternate outline"></Icon> {description}
+						</div>
 					</Card.Description>
 				</Card.Meta>
 			</Card.Content>
