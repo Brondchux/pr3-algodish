@@ -14,6 +14,7 @@ const typeDefs = gql`
     _id: ID
     title: String
     dishAuthor: String
+    decription: String
     image: String
     ingredients: [String]
     instructions: Instructions!

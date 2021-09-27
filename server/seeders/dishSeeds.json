@@ -4,6 +4,7 @@
     "dishAuthor": "Brian Kernighan",
     "image": "https://natashaskitchen.com/wp-content/uploads/2021/08/Grilled-Cheese-Sandwich-3-728x1092.jpg",
     "total_time": "20",
+    "description": "An American staple. A buttery grilled sandwich with a melted cheese center.",
     "ingredients": ["bread", "cheese", "butter"]
   },
   {
@@ -11,6 +12,7 @@
     "dishAuthor": "Max Kanat-Alexander",
     "image": "https://www.jessicagavin.com/wp-content/uploads/2021/03/lemon-kale-salad-13-1200.jpg",
     "total_time": "15",
+    "description": "This easy kale salad features fresh veggies and a super simple homemade lemon dressing, making it perfect as a healthy side dish or light lunch! It is definitely one of my very favorite kale salad recipes!",
     "ingredients": ["kale", "tomatoes", "almonds", "parmesan cheese"]
   },
   {
@@ -18,6 +20,7 @@
     "dishAuthor": "Why The Lucky Stiff",
     "image": "https://www.jessicagavin.com/wp-content/uploads/2019/01/baked-salmon-8-1200.jpg",
     "total_time": "60",
+    "description": "Whether you need a fast, healthy dinner, a meal to wow the crowd, or a simple protein that you can enjoy tonight and eat leftover the next day, this is THE baked salmon recipe for you!",
     "ingredients": ["salmon", "lemon", "chives", "salt", "pepper", "dill"]
   },
   {
@@ -25,6 +28,7 @@
     "dishAuthor": "Kent Beck",
     "image": "https://www.recipetineats.com/wp-content/uploads/2016/09/Coq-au-Vin_00.jpg",
     "total_time": "120",
+    "description": "Coq Au Vin or rooster with wine is a classic French dish that isn't as complicated as it sounds. Chicken is braised in a silky wine sauce and finished off with butter for the most perfect sauce. ",
     "ingredients": [
       "chicken",
       "red wine",
@@ -45,6 +49,7 @@
     "dishAuthor": "Edward V. Berard",
     "image": "https://i0.wp.com/seonkyounglongest.com/wp-content/uploads/2020/02/Egg-Fried-Rice-2.jpg?fit=1300%2C867&ssl=1",
     "total_time": "25",
+    "description": "This egg fried rice recipe is designed to work with any cooking setup, whether you're lucky enough to have a true flaming-hot wok burner or are just using a nonstick skillet on an electric cooktop.",
     "ingredients": [
       "leftover rice",
       "cooking oil",
