@@ -3,43 +3,43 @@ import Banner from "../components/Banner";
 import Carousel from "../components/Carousel";
 import spagettiImg from "../assets/images/spagetti.jpg";
 
-const Home = () => {
-	const generateRandomId = () => Math.floor(Math.random() * 99);
-	const testDishList = () => [
-		{
-			id: generateRandomId(),
-			image: spagettiImg,
-			title: `Delicious spagetti ${generateRandomId()}`,
-			username: "Elle",
-			cookTime: generateRandomId(),
-			description: "Spagetti cooked in the Zimbabwe style!",
-		},
-		{
-			id: generateRandomId(),
-			image: spagettiImg,
-			title: `Delicious spagetti ${generateRandomId()}`,
-			username: "Elle",
-			cookTime: generateRandomId(),
-			description: "Spagetti cooked in the Zimbabwe style!",
-		},
-		{
-			id: generateRandomId(),
-			image: spagettiImg,
-			title: `Delicious spagetti ${generateRandomId()}`,
-			username: "Elle",
-			cookTime: generateRandomId(),
-			description: "Spagetti cooked in the Zimbabwe style!",
-		},
-		{
-			id: generateRandomId(),
-			image: spagettiImg,
-			title: `Delicious spagetti ${generateRandomId()}`,
-			username: "Elle",
-			cookTime: generateRandomId(),
-			description: "Spagetti cooked in the Zimbabwe style!",
-		},
-	];
+const generateRandomId = () => Math.floor(Math.random() * 99);
+export const testDishList = () => [
+	{
+		id: generateRandomId(),
+		image: spagettiImg,
+		title: `Delicious spagetti ${generateRandomId()}`,
+		username: "Elle",
+		cookTime: generateRandomId(),
+		description: "Spagetti cooked in the Zimbabwe style!",
+	},
+	{
+		id: generateRandomId(),
+		image: spagettiImg,
+		title: `Delicious spagetti ${generateRandomId()}`,
+		username: "Elle",
+		cookTime: generateRandomId(),
+		description: "Spagetti cooked in the Zimbabwe style!",
+	},
+	{
+		id: generateRandomId(),
+		image: spagettiImg,
+		title: `Delicious spagetti ${generateRandomId()}`,
+		username: "Elle",
+		cookTime: generateRandomId(),
+		description: "Spagetti cooked in the Zimbabwe style!",
+	},
+	{
+		id: generateRandomId(),
+		image: spagettiImg,
+		title: `Delicious spagetti ${generateRandomId()}`,
+		username: "Elle",
+		cookTime: generateRandomId(),
+		description: "Spagetti cooked in the Zimbabwe style!",
+	},
+];
 
+const Home = () => {
 	return (
 		<>
 			<Segment basic>
