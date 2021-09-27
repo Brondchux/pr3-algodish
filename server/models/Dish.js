@@ -30,7 +30,10 @@ const dishSchema = new Schema({
   },
   instructions: {
     type: Schema.Types.ObjectId,
-    ref: "Instructions" 
+    ref: "Instructions",
+  },
+  cookTime: {
+    type: Number,
   },
 });
 
