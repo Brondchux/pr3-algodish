@@ -15,6 +15,7 @@ export const CREATE_NEW_USER = gql`
 //Create A Dish
 
 // to break this down: for a dish, we are taking in from the user a title (string) and an image (string). Then, we take in ingredients which is an array of strings. THEN, we take in instructions which is an array of objects that take in steps which itself is an array of objects, each containing time (Int) and a step (string)
+//I'm not sure the notation to add the username as the dishAuthor
 
 export const CREATE_NEW_DISH = gql`
 mutation addDish(
@@ -47,7 +48,7 @@ mutation addDish(
 }
 `;
 
-//Delete A Dish
+//Delete A Dish by dish _id
 export const DELETE_DISH = gql``;
 
 //Login
