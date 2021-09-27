@@ -1,8 +1,15 @@
+import { useState } from "react";
 import { Segment, Form, Grid, Message, Icon, Divider } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import MainButton from "../components/MainButton";
+import { useMutation } from "@apollo/client";
+import { LOGIN } from "../utils/mutations";
+import auth from "../utils/auth";
 
-const Login = () => {
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error, data }] = useMutation(LOGIN);
+
   return (
     <Segment basic>
       <Divider horizontal></Divider>
