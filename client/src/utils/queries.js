@@ -9,6 +9,7 @@ export const FETCH_ALL_DISHES = gql`
       dishAuthor
       image
       description
+      cookTime
     }
   }
 `;
@@ -23,6 +24,7 @@ export const FETCH_DISH_BY_ID = gql`
       dishAuthor
       image
       description
+      cookTime
     }
   }
 `;
@@ -35,6 +37,7 @@ export const FETCH_WHOLE_DISH_BY_ID = gql`
       dishAuthor
       image
       description
+      cookTime
       ingredients
       recipe
     }
@@ -47,9 +50,10 @@ export const FETCH_CREATED_DISHES = gql`
     userDishes(id: $id) {
       title
       dishAuthor
-      ingredients
       image
       description
+      cookTime
+      ingredients
     }
   }
 `;
@@ -62,6 +66,7 @@ export const FETCH_FOUR_RANDOM_DISHES = gql`
       dishAuthor
       image
       description
+      cookTime
     }
   }
 `;
@@ -74,6 +79,7 @@ export const FETCH_LAST_FOUR_DISHES = gql`
       dishAuthor
       image
       description
+      cookTime
     }
   }
 `;
@@ -86,6 +92,7 @@ export const FETCH_DISH_BY_NAME = gql`
       dishAuthor
       image
       description
+      cookTime
     }
   }
 `;
