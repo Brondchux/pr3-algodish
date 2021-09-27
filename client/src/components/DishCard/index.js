@@ -14,14 +14,19 @@ const DishCard = ({ dish }) => {
 				<Card.Header>{title}</Card.Header>
 				<br />
 				<Card.Meta>
-					<Icon name="user"></Icon>
+					<Icon name="user outline"></Icon>
 					<span className="date">{username}</span>
 				</Card.Meta>
-				<Card.Description>{description}</Card.Description>
+				<br />
+				<Card.Meta>
+					<Card.Description>
+						<Icon name="list alternate outline"></Icon> {description}
+					</Card.Description>
+				</Card.Meta>
 			</Card.Content>
 			<Card.Content extra>
 				<span>
-					<Icon name="clock" /> Cook time {cookTime} mins
+					<Icon name="clock outline" /> Cook time {cookTime} mins
 				</span>
 			</Card.Content>
 		</Card>
