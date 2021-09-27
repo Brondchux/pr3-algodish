@@ -5,7 +5,8 @@
     "image": "https://natashaskitchen.com/wp-content/uploads/2021/08/Grilled-Cheese-Sandwich-3-728x1092.jpg",
     "total_time": "20",
     "description": "An American staple. A buttery grilled sandwich with a melted cheese center.",
-    "ingredients": ["bread", "cheese", "butter"]
+    "ingredients": "bread, cheese, butter",
+    "recipe": "Get bread. Get Cheese. Heat up pan. Put butter on bread. Put cheese on bread. Put sandwich in pan. Flip. Eat."
   },
   {
     "title": "Kale Salad",
@@ -13,7 +14,8 @@
     "image": "https://www.jessicagavin.com/wp-content/uploads/2021/03/lemon-kale-salad-13-1200.jpg",
     "total_time": "15",
     "description": "This easy kale salad features fresh veggies and a super simple homemade lemon dressing, making it perfect as a healthy side dish or light lunch! It is definitely one of my very favorite kale salad recipes!",
-    "ingredients": ["kale", "tomatoes", "almonds", "parmesan cheese"]
+    "ingredients": "kale, tomatoes, almonds, parmesan cheese",
+    "recipe": "Massage kale. Grate parmesan. Chop almonds. Slice tomatoes."
   },
   {
     "title": "Baked Salmon",
@@ -21,7 +23,8 @@
     "image": "https://www.jessicagavin.com/wp-content/uploads/2019/01/baked-salmon-8-1200.jpg",
     "total_time": "60",
     "description": "Whether you need a fast, healthy dinner, a meal to wow the crowd, or a simple protein that you can enjoy tonight and eat leftover the next day, this is THE baked salmon recipe for you!",
-    "ingredients": ["salmon", "lemon", "chives", "salt", "pepper", "dill"]
+    "ingredients": "salmon, lemon, chives, salt, pepper, dill",
+    "recipe": "Combine juice from lemon with salt, pepper, chives, and dill. Spread onto salmon. Bake in oven for 25 minutes. Serve with additional chopped chives."
   },
   {
     "title": "Coq au Vin",
@@ -29,20 +32,8 @@
     "image": "https://www.recipetineats.com/wp-content/uploads/2016/09/Coq-au-Vin_00.jpg",
     "total_time": "120",
     "description": "Coq Au Vin or rooster with wine is a classic French dish that isn't as complicated as it sounds. Chicken is braised in a silky wine sauce and finished off with butter for the most perfect sauce. ",
-    "ingredients": [
-      "chicken",
-      "red wine",
-      "pearl onions",
-      "thyme",
-      "bay leaf",
-      "bacon",
-      "flour",
-      "beef stock",
-      "tomato paste",
-      "butter",
-      "mushrooms",
-      "parsley"
-    ]
+    "ingredients": "chicken, red wine, pearl onions, thyme, bay leaf, bacon, flour, beef stock, tomato paste, butter, mushrooms, parsley",
+    "recipe": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl. Marinate chicken in wine mixture. Sear chicken. In a 350 degree oven, roast chicken with bacon and flour."
   },
   {
     "title": "Egg Fried Rice",
@@ -50,12 +41,52 @@
     "image": "https://i0.wp.com/seonkyounglongest.com/wp-content/uploads/2020/02/Egg-Fried-Rice-2.jpg?fit=1300%2C867&ssl=1",
     "total_time": "25",
     "description": "This egg fried rice recipe is designed to work with any cooking setup, whether you're lucky enough to have a true flaming-hot wok burner or are just using a nonstick skillet on an electric cooktop.",
-    "ingredients": [
-      "leftover rice",
-      "cooking oil",
-      "soy sauce",
-      "4 eggs, beaten",
-      "soy sauce"
-    ]
+    "ingredients": "leftover rice, cooking oil, soy sauce, 4 eggs",
+    "recipe": "Heat up oil in a wok. Add rice and soy sauce, stir to combine. Add in eggs. Leave on heat until eggs are cooked through."
+  },
+  {
+    "title": "Grilled Cheese",
+    "dishAuthor": "Brian Kernighan",
+    "image": "https://natashaskitchen.com/wp-content/uploads/2021/08/Grilled-Cheese-Sandwich-3-728x1092.jpg",
+    "total_time": "20",
+    "description": "An American staple. A buttery grilled sandwich with a melted cheese center.",
+    "ingredients": "bread, cheese, butter",
+    "recipe": "Get bread. Get Cheese. Heat up pan. Put butter on bread. Put cheese on bread. Put sandwich in pan. Flip. Eat."
+  },
+  {
+    "title": "Kale Salad",
+    "dishAuthor": "Max Kanat-Alexander",
+    "image": "https://www.jessicagavin.com/wp-content/uploads/2021/03/lemon-kale-salad-13-1200.jpg",
+    "total_time": "15",
+    "description": "This easy kale salad features fresh veggies and a super simple homemade lemon dressing, making it perfect as a healthy side dish or light lunch! It is definitely one of my very favorite kale salad recipes!",
+    "ingredients": "kale, tomatoes, almonds, parmesan cheese",
+    "recipe": "Massage kale. Grate parmesan. Chop almonds. Slice tomatoes."
+  },
+  {
+    "title": "Baked Salmon",
+    "dishAuthor": "Why The Lucky Stiff",
+    "image": "https://www.jessicagavin.com/wp-content/uploads/2019/01/baked-salmon-8-1200.jpg",
+    "total_time": "60",
+    "description": "Whether you need a fast, healthy dinner, a meal to wow the crowd, or a simple protein that you can enjoy tonight and eat leftover the next day, this is THE baked salmon recipe for you!",
+    "ingredients": "salmon, lemon, chives, salt, pepper, dill",
+    "recipe": "Combine juice from lemon with salt, pepper, chives, and dill. Spread onto salmon. Bake in oven for 25 minutes. Serve with additional chopped chives."
+  },
+  {
+    "title": "Coq au Vin",
+    "dishAuthor": "Kent Beck",
+    "image": "https://www.recipetineats.com/wp-content/uploads/2016/09/Coq-au-Vin_00.jpg",
+    "total_time": "120",
+    "description": "Coq Au Vin or rooster with wine is a classic French dish that isn't as complicated as it sounds. Chicken is braised in a silky wine sauce and finished off with butter for the most perfect sauce. ",
+    "ingredients": "chicken, red wine, pearl onions, thyme, bay leaf, bacon, flour, beef stock, tomato paste, butter, mushrooms, parsley",
+    "recipe": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl. Marinate chicken in wine mixture. Sear chicken. In a 350 degree oven, roast chicken with bacon and flour."
+  },
+  {
+    "title": "Egg Fried Rice",
+    "dishAuthor": "Edward V. Berard",
+    "image": "https://i0.wp.com/seonkyounglongest.com/wp-content/uploads/2020/02/Egg-Fried-Rice-2.jpg?fit=1300%2C867&ssl=1",
+    "total_time": "25",
+    "description": "This egg fried rice recipe is designed to work with any cooking setup, whether you're lucky enough to have a true flaming-hot wok burner or are just using a nonstick skillet on an electric cooktop.",
+    "ingredients": "leftover rice, cooking oil, soy sauce, 4 eggs",
+    "recipe": "Heat up oil in a wok. Add rice and soy sauce, stir to combine. Add in eggs. Leave on heat until eggs are cooked through."
   }
 ]
