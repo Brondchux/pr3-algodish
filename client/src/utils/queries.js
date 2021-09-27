@@ -110,3 +110,14 @@ export const FETCH_USERS = gql`
     }
   }
 `;
+
+//Get user by ID
+export const FETCH_USER_BY_ID = gql`
+  query userById($id: ID!) {
+    userById(id: $id) {
+      _id
+      username
+      email
+    }
+  }
+`;
