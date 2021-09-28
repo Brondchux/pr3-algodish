@@ -6,7 +6,7 @@ import {
   Icon,
   Divider,
 } from "semantic-ui-react";
-import { Link, Redirect, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { buttonStyles } from "../../components/MainButton";
 import Carousel from "../../components/Carousel";
 import TestDishes from "../../components/TestDishes";
