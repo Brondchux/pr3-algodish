@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Dish from "./pages/Dish";
+import Search from "./pages/Search";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Auth/Dashboard";
@@ -29,6 +30,9 @@ const App = () => {
 					</Route>
 					<Route exact path="/dish/:id">
 						<Dish></Dish>
+					</Route>
+					<Route exact path="/search/:query">
+						<Search></Search>
 					</Route>
 					<Route exact path="/login">
 						<Login></Login>
