@@ -34,7 +34,7 @@ const Dashboard = () => {
 								<UserAccount userData={user}></UserAccount>
 							</Grid.Column>
 							<Grid.Column>
-								<Link to="create-dish">
+								<Link to={`/dashboard/${user._id}/create-dish`}>
 									<Button
 										fluid
 										style={buttonStyles.algoButton}
@@ -53,12 +53,6 @@ const Dashboard = () => {
 					<Divider horizontal></Divider>
 					<Header as="h2">
 						<span className="cadet-color">Dishes you created</span>
-					</Header>
-					<Carousel dishList={TestDishes}></Carousel>
-
-					<Divider horizontal></Divider>
-					<Header as="h2">
-						<span className="cadet-color">Your favourite dishes</span>
 					</Header>
 					<Carousel dishList={TestDishes}></Carousel>
 				</Segment>
