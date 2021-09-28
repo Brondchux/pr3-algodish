@@ -24,10 +24,16 @@ class AuthService {
 		return localStorage.getItem("user_id");
 	}
 
+	getUsername() {
+		// Retrieves the user username from localStorage
+		return localStorage.getItem("user_username");
+	}
+
 	login(userData) {
 		// Saves user token to localStorage and reloads the application for logged in status to take effect
 		localStorage.setItem("id_token", userData.token);
 		localStorage.setItem("user_id", userData.user._id);
+		localStorage.setItem("user_username", userData.user.username);
 		// window.location.assign("/");
 	}
 
@@ -35,6 +41,7 @@ class AuthService {
 		// Clear user token and profile data from localStorage
 		localStorage.removeItem("id_token");
 		localStorage.removeItem("user_id");
+		localStorage.removeItem("user_username");
 		// this will redirect user to homepage and reset the state of the application
 		window.location = "/";
 	}

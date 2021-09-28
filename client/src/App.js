@@ -43,7 +43,7 @@ const App = () => {
 					<Route exact path="/dashboard/:userId">
 						<Dashboard></Dashboard>
 					</Route>
-					<Route exact path="/create-dish">
+					<Route exact path="/dashboard/:userId/create-dish">
 						<CreateDish></CreateDish>
 					</Route>
 				</main>

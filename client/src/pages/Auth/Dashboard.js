@@ -34,7 +34,7 @@ const Dashboard = () => {
 								<UserAccount userData={user}></UserAccount>
 							</Grid.Column>
 							<Grid.Column>
-								<Link to="create-dish">
+								<Link to={`/dashboard/${user._id}/create-dish`}>
 									<Button
 										fluid
 										style={buttonStyles.algoButton}
