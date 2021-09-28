@@ -74,4 +74,6 @@ const AboutUs = () => {
 	);
 };
 
+// Looking tough!
+
 export default AboutUs;
