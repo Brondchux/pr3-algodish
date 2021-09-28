@@ -13,16 +13,20 @@ import TestDishes from "../../components/TestDishes";
 import UserAccount from "../../components/UserAccount";
 import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
-import { FETCH_USER_BY_ID } from "../../utils/queries";
+import { FETCH_USER_BY_ID, FETCH_CREATED_DISHES } from "../../utils/queries";
 
 const Dashboard = () => {
 	const { userId } = useParams();
 
-	const { data } = useQuery(FETCH_USER_BY_ID, {
+	const { data: userData } = useQuery(FETCH_USER_BY_ID, {
 		variables: { id: userId },
 	});
+	const user = userData?.userById || {};
 
-	const user = data?.userById || {};
+	const { data: userDishesObj } = useQuery(FETCH_CREATED_DISHES, {
+		variables: { id: userId },
+	});
+	const userDishesList = userDishesObj?.userDishes || TestDishes;
 
 	return (
 		<Segment basic padded="very">
@@ -54,7 +58,7 @@ const Dashboard = () => {
 					<Header as="h2">
 						<span className="cadet-color">Dishes you created</span>
 					</Header>
-					<Carousel dishList={TestDishes}></Carousel>
+					<Carousel dishList={userDishesList}></Carousel>
 				</Segment>
 			) : (
 				<Header textAlign="center" size="huge">
