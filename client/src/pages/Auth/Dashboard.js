@@ -13,11 +13,12 @@ import TestDishes from "../../components/TestDishes";
 import UserAccount from "../../components/UserAccount";
 import auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
+import { FETCH_USER_BY_ID } from "../../utils/queries";
 
 const Dashboard = () => {
   // const { username: userParam } = useParams();
 
-  // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  // const { loading, data } = useQuery(userParam FETCH_USER_BY_ID, {
   //   variables: { username: userParam },
   // });
 

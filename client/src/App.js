@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Dish from "./pages/Dish";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Auth/Dashboard";
@@ -25,6 +26,9 @@ const App = () => {
 				<main>
 					<Route exact path="/">
 						<Home></Home>
+					</Route>
+					<Route exact path="/dish/:id">
+						<Dish></Dish>
 					</Route>
 					<Route exact path="/login">
 						<Login></Login>
