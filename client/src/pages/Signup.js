@@ -43,9 +43,14 @@ const Signup = () => {
 				variables: { ...formState },
 			});
 
-			Auth.login(data.addUser.token);
+			Auth.login(data.addUser);
 		} catch (e) {
 			console.error(e);
+		}
+
+		// redirect user to dashboard
+		if (Auth.loggedIn()) {
+			window.location = `/dashboard/${Auth.getUserId()}`;
 		}
 	};
 
@@ -56,7 +61,7 @@ const Signup = () => {
 				<Grid.Row>
 					<Grid.Column></Grid.Column>
 					<Grid.Column>
-						{data ? (
+						{Auth.loggedIn() ? (
 							<Header as="h3" textAlign="center">
 								<p>Success! You are now signed up!</p>
 								<Divider horizontal></Divider>
