@@ -14,9 +14,11 @@ const typeDefs = gql`
     _id: ID
     title: String
     dishAuthor: String
+    description: String
     image: String
-    ingredients: [String]
-    instructions: Instructions!
+    ingredients: String
+    recipe: String
+    instructions: Instructions
   }
 
   type Instructions {
@@ -32,40 +34,44 @@ const typeDefs = gql`
   }
 
   type Auth {
-    token: ID!
+    token: ID
     user: User
   }
 
   type Query {
     users: [User]
     user(username: String!): User
-    userDishes(username: String!): [Dish]
-    userHistory(username: String!): [Dish]
-    userFavorites(username: String!): [Dish]
+    userDishes(id: ID!): [Dish]
+    userHistory(id: ID!): [Dish]
+    userFavorites(id: ID!): [Dish]
     allDishes: [Dish]
     dishesByName(title: String!): [Dish]
-    dishById(_id: ID!): Dish
-    fiveRandomDishes: [Dish]
+    dishById(id: ID!): Dish
+    fourRandomDishes: [Dish]
+    lastFourDishes: [Dish]
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    uploadDish(title: String!, image: String!, ingredients: [String]!): Dish
-    addInstructions(dishId: ID!): Dish
-    addStep(instructionId: ID!, time:Int, step: String!): Dish
-    
-    
-    
 
+    uploadDish(
+      title: String!
+      dishAuthor: String!
+      decription: String!
+      image: String
+      ingredients: String!
+      recipe: String!
+    ): Dish
+    addInstructions(dishId: ID!): Dish
+    addStep(instructionId: ID!, time: Int, step: String!): Dish
   }
 `;
 
 module.exports = typeDefs;
 
-
-// addDishToFavorites() 
+// addDishToFavorites()
 // addDishToHistory
 // removeDishFromFavorites
 // deleteDish

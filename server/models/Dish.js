@@ -15,13 +15,19 @@ const dishSchema = new Schema({
   image: {
     type: String,
   },
-
-  ingredients: [
-    {
-      type: String,
-        required: true,
-    },
-  ],
+  description: {
+    type: String,
+    trim: true,
+  },
+  ingredients: {
+    type: String,
+    required: true,
+  },
+  recipe: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   instructions: {
     type: Schema.Types.ObjectId,
     ref: "Instructions" 
