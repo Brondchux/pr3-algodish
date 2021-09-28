@@ -38,9 +38,14 @@ const Login = () => {
 				variables: { ...formState },
 			});
 
-			Auth.login(data.login.token);
+			Auth.login(data.login);
 		} catch (e) {
 			console.error(e);
+		}
+
+		// redirect user to dashboard
+		if (Auth.loggedIn()) {
+			window.location = `/dashboard/${Auth.getUserId()}`;
 		}
 
 		// clear form values
@@ -56,11 +61,11 @@ const Login = () => {
 				<Grid.Row>
 					<Grid.Column></Grid.Column>
 					<Grid.Column>
-						{data ? (
+						{Auth.loggedIn() ? (
 							<Header as="h3" textAlign="center">
 								<p>Success! You are now logged in!</p>
 								<Divider horizontal></Divider>
-								<Link to="/dashboard">
+								<Link to={`/dashboard/${data.login.user._id}`}>
 									<Button
 										fluid
 										style={buttonStyles.algoButton}

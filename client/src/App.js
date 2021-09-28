@@ -40,7 +40,7 @@ const App = () => {
 					<Route exact path="/signup">
 						<Signup></Signup>
 					</Route>
-					<Route exact path="/dashboard">
+					<Route exact path="/dashboard/:userId">
 						<Dashboard></Dashboard>
 					</Route>
 					<Route exact path="/create-dish">
