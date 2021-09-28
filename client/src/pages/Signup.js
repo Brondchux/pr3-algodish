@@ -60,7 +60,7 @@ const Signup = () => {
 							<Header as="h3" textAlign="center">
 								<p>Success! You are now signed up!</p>
 								<Divider horizontal></Divider>
-								<Link to="/dashboard">
+								<Link to={`/dashboard/${data.addUser.user._id}`}>
 									<Button
 										fluid
 										style={buttonStyles.algoButton}
