@@ -60,7 +60,7 @@ const Login = () => {
 							<Header as="h3" textAlign="center">
 								<p>Success! You are now logged in!</p>
 								<Divider horizontal></Divider>
-								<Link to="/dashboard">
+								<Link to={`/dashboard/${data.login.user._id}`}>
 									<Button
 										fluid
 										style={buttonStyles.algoButton}
