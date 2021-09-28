@@ -21,31 +21,37 @@ const userSchema = new Schema({
     required: true,
     minlength: 8,
   },
-  created_dishes: [{
-    type: Schema.Types.ObjectId,
-    ref: "Dish",
-  }],
-  favorite_dishes: [{
-    type: Schema.Types.ObjectId,
-    ref: "Dish",
-  }],
-  history_dishes: [{
-    type: Schema.Types.ObjectId,
-    ref: "Dish",
-  }],
+  created_dishes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Dish",
+    },
+  ],
+  favorite_dishes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Dish",
+    },
+  ],
+  history_dishes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Dish",
+    },
+  ],
 });
 
-userSchema.pre('save', async function(next) {
-    if (this.isNew || this.isModified('password')) {
-        const saltRounds = 10;
-        this.password = await bcrypt.hash(this.password, saltRounds);
-    }
-    next();
+userSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+  next();
 });
 
-// userSchema.methods.isCorrectPassword = async function(password) {
-//     return await bcrypt.compare(password, this.password);
-// }
+userSchema.methods.isCorrectPassword = async function (password) {
+  return await bcrypt.compare(password, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
