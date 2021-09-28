@@ -7,6 +7,7 @@ import Dish from "./pages/Dish";
 import Search from "./pages/Search";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import AboutUs from "./pages/AboutUs";
 import Dashboard from "./pages/Auth/Dashboard";
 import CreateDish from "./pages/Auth/CreateDish";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
@@ -45,6 +46,9 @@ const App = () => {
 					</Route>
 					<Route exact path="/dashboard/:userId/create-dish">
 						<CreateDish></CreateDish>
+					</Route>
+					<Route exact path="/about">
+						<AboutUs></AboutUs>
 					</Route>
 				</main>
 
