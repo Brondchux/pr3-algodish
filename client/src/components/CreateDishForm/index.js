@@ -96,7 +96,7 @@ const CreateDishForm = () => {
 				/>
 				<MainButton title="Submit Dish"></MainButton>
 			</Form>
-			<Message attached="bottom" teal>
+			<Message attached="bottom">
 				<Icon name="utensils" />
 				Properly describe the steps and ingredents need to prepare this dish.
 			</Message>

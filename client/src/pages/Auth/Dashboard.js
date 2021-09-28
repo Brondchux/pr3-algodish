@@ -13,7 +13,10 @@ import TestDishes from "../../components/TestDishes";
 import UserAccount from "../../components/UserAccount";
 import Auth from "../../utils/auth";
 import { useQuery } from "@apollo/client";
-import { FETCH_USER_BY_ID, FETCH_CREATED_DISHES } from "../../utils/queries";
+import {
+	FETCH_USER_BY_ID,
+	FETCH_CREATED_DISHES_BY_USERNAME,
+} from "../../utils/queries";
 
 const Dashboard = () => {
 	const { userId } = useParams();
@@ -23,10 +26,10 @@ const Dashboard = () => {
 	});
 	const user = userData?.userById || {};
 
-	const { data: userDishesObj } = useQuery(FETCH_CREATED_DISHES, {
-		variables: { id: userId },
+	const { data: userDishesObj } = useQuery(FETCH_CREATED_DISHES_BY_USERNAME, {
+		variables: { username: Auth.getUsername() },
 	});
-	const userDishesList = userDishesObj?.userDishes || TestDishes;
+	const userDishesList = userDishesObj?.usernameCreatedDishes || TestDishes;
 
 	return (
 		<Segment basic padded="very">
