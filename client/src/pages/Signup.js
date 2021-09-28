@@ -58,7 +58,7 @@ const Signup = () => {
 					<Grid.Column>
 						{data ? (
 							<Header as="h3" textAlign="center">
-								<p>Success! You are now logged in!</p>
+								<p>Success! You are now signed up!</p>
 								<Divider horizontal></Divider>
 								<Link to="/dashboard">
 									<Button
