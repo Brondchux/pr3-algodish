@@ -1,5 +1,8 @@
 import { Header, Icon, Segment, Message, List } from "semantic-ui-react";
-import image from "../assets/images/spagetti.jpg";
+import { FETCH_WHOLE_DISH_BY_ID } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router";
+import Loading from "../components/Loading";
 
 const Dish = () => {
 	const dishStyles = {
@@ -12,84 +15,90 @@ const Dish = () => {
 			borderRadius: "10px",
 		},
 	};
+
+	const { id: dishId } = useParams();
+	const { loading, data } = useQuery(FETCH_WHOLE_DISH_BY_ID, {
+		variables: { id: dishId },
+	});
+
+	const {
+		title,
+		image,
+		username,
+		description,
+		ingredients,
+		recipe,
+		cook_time,
+	} = data?.dishById || {};
+
+	const ingredientsList = ingredients ? ingredients.split(",") : [];
+	const recipeList = recipe ? recipe.split(".") : [];
+
 	return (
 		<Segment basic padded="very">
-			<Segment raised padded="very">
-				<div
-					style={{
-						backgroundImage: `url(${image})`,
-						...dishStyles.dishBackground,
-					}}
-				></div>
-				<Header as="h3" size="huge">
-					<Icon name="utensils"></Icon> Dish Title
-				</Header>
-				<Message>
-					<Message.Header>About dish</Message.Header>
-					<p>
-						We updated our privacy policy here to better service our customers.
-						We recommend reviewing the changes.
-					</p>
-				</Message>
-				<Message>
-					<Message.Header>Ingredients</Message.Header>
-					<Segment>
-						<List divided inverted relaxed>
-							<List.Item>
-								<List.Content>
-									<List.Header>Snickerdoodle</List.Header>
-									An excellent companion
-								</List.Content>
-							</List.Item>
-							<List.Item>
-								<List.Content>
-									<List.Header>Poodle</List.Header>A poodle, its pretty basic
-								</List.Content>
-							</List.Item>
-							<List.Item>
-								<List.Content>
-									<List.Header>Paulo</List.Header>
-									He's also a dog
-								</List.Content>
-							</List.Item>
-						</List>
-					</Segment>
-				</Message>
-				<Message>
-					<Message.Header>Recipe</Message.Header>
-					<Segment>
-						<List divided inverted relaxed>
-							<List.Item>
-								<List.Content>
-									<List.Header>Snickerdoodle</List.Header>
-									An excellent companion
-								</List.Content>
-							</List.Item>
-							<List.Item>
-								<List.Content>
-									<List.Header>Poodle</List.Header>A poodle, its pretty basic
-								</List.Content>
-							</List.Item>
-							<List.Item>
-								<List.Content>
-									<List.Header>Paulo</List.Header>
-									He's also a dog
-								</List.Content>
-							</List.Item>
-						</List>
-					</Segment>
-				</Message>
-				<Message>
-					<Message.Header>Est. Cook Time</Message.Header>
-					<Segment>
-						<List divided inverted relaxed>
-							<List.Item>
-								<List.Content>An excellent companion</List.Content>
-							</List.Item>
-						</List>
-					</Segment>
-				</Message>
-			</Segment>
+			{loading ? (
+				<Loading></Loading>
+			) : (
+				<Segment raised padded="very">
+					<div
+						style={{
+							backgroundImage: `url(${image})`,
+							...dishStyles.dishBackground,
+						}}
+					></div>
+					<Header as="h3" size="huge">
+						<Icon name="utensils"></Icon> {title}
+					</Header>
+					<Message>
+						<Message.Header>
+							<Icon name="user outline"></Icon> {username} says:
+						</Message.Header>
+						<p>{description}</p>
+					</Message>
+					<Message>
+						<Message.Header>Ingredients</Message.Header>
+						<Segment>
+							{ingredientsList.map((ingredient, index) => (
+								<List key={index} divided inverted relaxed>
+									<List.Item>
+										<List.Content>
+											{index + 1}. {ingredient}
+										</List.Content>
+									</List.Item>
+								</List>
+							))}
+						</Segment>
+					</Message>
+					<Message>
+						<Message.Header>Recipe</Message.Header>
+						<Segment>
+							{recipeList
+								.slice(0, recipeList.length - 1)
+								.map((recipe, index) => (
+									<List key={index} divided inverted relaxed>
+										<List.Item>
+											<List.Content>
+												{index + 1}. {recipe}
+											</List.Content>
+										</List.Item>
+									</List>
+								))}
+						</Segment>
+					</Message>
+					<Message>
+						<Message.Header>Cook Time</Message.Header>
+						<Segment>
+							<List divided inverted relaxed>
+								<List.Item>
+									<List.Content>
+										Estimated ready time is {cook_time} minutes!
+									</List.Content>
+								</List.Item>
+							</List>
+						</Segment>
+					</Message>
+				</Segment>
+			)}
 		</Segment>
 	);
 };

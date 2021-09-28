@@ -1,8 +1,9 @@
-import { Header, Icon, Segment } from "semantic-ui-react";
+import { Header, Segment } from "semantic-ui-react";
 import Carousel from "../Carousel";
 import TestDishes from "../TestDishes";
 import { FETCH_LAST_FOUR_DISHES } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
+import Loading from "../Loading";
 
 const RecentDishes = () => {
 	const { loading, data } = useQuery(FETCH_LAST_FOUR_DISHES);
@@ -10,11 +11,7 @@ const RecentDishes = () => {
 	return (
 		<Segment basic padded="very">
 			{loading ? (
-				<Segment placeholder raised textAlign="center">
-					<Header textAlign="center" size="large">
-						<Icon name="spinner"></Icon>
-					</Header>
-				</Segment>
+				<Loading></Loading>
 			) : (
 				<>
 					<Header as="h2">
