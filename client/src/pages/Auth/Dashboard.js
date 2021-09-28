@@ -55,12 +55,6 @@ const Dashboard = () => {
 						<span className="cadet-color">Dishes you created</span>
 					</Header>
 					<Carousel dishList={TestDishes}></Carousel>
-
-					<Divider horizontal></Divider>
-					<Header as="h2">
-						<span className="cadet-color">Your favourite dishes</span>
-					</Header>
-					<Carousel dishList={TestDishes}></Carousel>
 				</Segment>
 			) : (
 				<Header textAlign="center" size="huge">
