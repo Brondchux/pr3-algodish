@@ -1,6 +1,6 @@
 import spagettiImg from "../../assets/images/spagetti.jpg";
 
-const generateRandomId = () => Math.floor(Math.random() * 99);
+export const generateRandomId = () => Math.floor(Math.random() * 99);
 const TestDishes = () => [
 	{
 		id: generateRandomId(),

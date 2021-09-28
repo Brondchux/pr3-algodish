@@ -1,5 +1,5 @@
 const { gql } = require("apollo-server-express");
-
+// Comment
 const typeDefs = gql`
   type User {
     _id: ID
@@ -60,12 +60,12 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     uploadDish(
-      title: String!
-      username: String!
-      description: String!
-      image: String
-      ingredients: String!
-      recipe: String!
+      title: String!,
+      username: String!,
+      description: String!,
+      image: String,
+      ingredients: String!,
+      recipe: String!,
       cook_time: Int
     ): Dish
     addInstructions(dishId: ID!): Dish

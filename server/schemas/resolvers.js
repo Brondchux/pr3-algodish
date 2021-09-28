@@ -14,6 +14,12 @@ const resolvers = {
     users: async () => {
       return await User.find();
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     userDishes: async (_, args) => {
       const { created_dishes } = await User.findById(
         args.id,
@@ -84,23 +90,34 @@ const resolvers = {
       { title, username, description, image, ingredients, recipe, cook_time },
       context
     ) => {
-      if (context.user) {
-        const newDish = new Dish({
-          title,
+      //if (context.user) {
+        // const newDish = new Dish({
+        //   title,
+        //   username,
+        //   description,
+        //   image,
+        //   ingredients,
+        //   recipe,
+        //   cook_time,
+        // });
+
+        // await User.findByIdAndUpdate(context.user.id, {
+        //   $push: { created_dishes: newDish },
+        // });
+
+        const newDish = Dish.create({
+             title,
           username,
           description,
           image,
           ingredients,
           recipe,
           cook_time,
-        });
+        })
 
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { created_dishes: newDish },
-        });
 
         return newDish;
-      }
+     // }
     },
   },
 };
