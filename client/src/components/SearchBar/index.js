@@ -23,7 +23,7 @@ const SearchBar = () => {
 		window.location = `/search/${formState.search}`;
 	};
 	return (
-		<Form onSubmit={handleFormSubmit}>
+		<Form onSubmit={handleFormSubmit} autoComplete="off">
 			<Form.Input
 				fluid
 				size="massive"
