@@ -3,10 +3,10 @@ import DishCard from "../DishCard";
 
 const Carousel = ({ dishList }) => (
 	<Segment placeholder raised>
-		<Grid doubling stackable columns={4}>
+		<Grid doubling stackable columns={dishList.length}>
 			<Grid.Row>
-				{dishList.map((dish) => (
-					<Grid.Column key={dish.id}>
+				{dishList.map((dish, index) => (
+					<Grid.Column key={index}>
 						<DishCard dish={dish}></DishCard>
 					</Grid.Column>
 				))}

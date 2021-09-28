@@ -7,7 +7,7 @@ const dishSchema = new Schema({
     type: String,
     required: true,
   },
-  dishAuthor: {
+  username: {
     type: String,
     required: true,
     trim: true,
@@ -19,15 +19,21 @@ const dishSchema = new Schema({
     type: String,
     trim: true,
   },
-  ingredients: [
-    {
-      type: String,
-        required: true,
-    },
-  ],
+  ingredients: {
+    type: String,
+    required: true,
+  },
+  recipe: {
+    type: String,
+    trim: true,
+    required: true,
+  },
   instructions: {
     type: Schema.Types.ObjectId,
-    ref: "Instructions" 
+    ref: "Instructions",
+  },
+  cook_time: {
+    type: Number,
   },
 });
 
