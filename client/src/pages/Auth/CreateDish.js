@@ -3,6 +3,7 @@ import UserAccount from "../../components/UserAccount";
 import CreateDishForm from "../../components/CreateDishForm";
 import { buttonStyles } from "../../components/MainButton";
 import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
 
 const CreateDish = () => {
 	return (
@@ -11,10 +12,12 @@ const CreateDish = () => {
 				<Grid columns={2} stackable>
 					<Grid.Row>
 						<Grid.Column>
-							<UserAccount></UserAccount>
+							<UserAccount
+								userData={{ username: Auth.getUsername() }}
+							></UserAccount>
 						</Grid.Column>
 						<Grid.Column textAlign="right">
-							<Link to="/dashboard">
+							<Link to={`/dashboard/${Auth.getUserId()}`}>
 								<Button size="large" style={buttonStyles.algoButton}>
 									<Icon name="arrow circle left"></Icon> Back to dashboard
 								</Button>
