@@ -90,23 +90,34 @@ const resolvers = {
       { title, username, description, image, ingredients, recipe, cook_time },
       context
     ) => {
-      if (context.user) {
-        const newDish = new Dish({
-          title,
+      //if (context.user) {
+        // const newDish = new Dish({
+        //   title,
+        //   username,
+        //   description,
+        //   image,
+        //   ingredients,
+        //   recipe,
+        //   cook_time,
+        // });
+
+        // await User.findByIdAndUpdate(context.user.id, {
+        //   $push: { created_dishes: newDish },
+        // });
+
+        const newDish = Dish.create({
+             title,
           username,
           description,
           image,
           ingredients,
           recipe,
           cook_time,
-        });
+        })
 
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { created_dishes: newDish },
-        });
 
         return newDish;
-      }
+     // }
     },
   },
 };
