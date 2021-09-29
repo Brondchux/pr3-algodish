@@ -117,13 +117,21 @@ const resolvers = {
 				cook_time,
 			});
 
-			const updatedUser = await User.findByIdAndUpdate(userId, {
-				$addToSet: { created_dishes: newDish._id }
-			})
+			const updatedUser = await User.findByIdAndUpdate(userId, 
+				{ $addToSet: { created_dishes: newDish._id } },
+				{ new: true }
+			)
 
 			return newDish;
 			// }
 		},
+		addInstructionsToDish: async (_, { step, time, dishId }) => {
+			const updatedDish = await Dish.findByIdAndUpdate(dishId, 
+				{ $push: { instructions: { step, time } } },
+				{ new: true}
+			)
+			return updatedDish
+		}
 	},
 };
 

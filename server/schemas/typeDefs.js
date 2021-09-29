@@ -53,7 +53,6 @@ const typeDefs = gql`
 	type Mutation {
 		addUser(username: String!, email: String!, password: String!): Auth
 		login(email: String!, password: String!): Auth
-
 		uploadDish(
 			title: String!
 			username: String!
@@ -63,8 +62,8 @@ const typeDefs = gql`
 			cook_time: Int
 			userId : ID!
 		): Dish
-		addInstructions(dishId: ID!): Dish
-		addStep(instructionId: ID!, time: Int, step: String!): Dish
+		addInstructionsToDish(step: String!, time: Int, dishId: ID!): Dish	
+		
 	}
 `;
 
