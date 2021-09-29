@@ -63,7 +63,6 @@ const typeDefs = gql`
 			userId : ID!
 		): Dish
 		addInstructionsToDish(step: String!, time: Int, dishId: ID!): Dish	
-		
 	}
 `;
 

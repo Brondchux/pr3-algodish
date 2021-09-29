@@ -1,10 +1,11 @@
-import { Message, Form, Icon, Header } from "semantic-ui-react";
+import { Message, Form, Icon, Header, Button } from "semantic-ui-react";
 import MainButton from "../MainButton";
 import { useMutation } from "@apollo/client";
 import { CREATE_NEW_DISH } from "../../utils/mutations";
 import React, { useState } from "react";
 import { generateRandomId } from "../TestDishes/index";
 import Auth from "../../utils/auth";
+import { parse } from "graphql";
 
 const CreateDishForm = () => {
 	const [formState, setFormState] = useState({
@@ -14,7 +15,11 @@ const CreateDishForm = () => {
 		image: "",
 		ingredients: "",
 		recipe: "",
+		numSteps: 1,
+		instruction: [],
 		cook_time: generateRandomId(), //parseInt('233')
+		steps : [],
+		stepsArray: [1]
 	});
 
 	const [createNewDish] = useMutation(CREATE_NEW_DISH);
@@ -28,6 +33,51 @@ const CreateDishForm = () => {
 		});
 	};
 
+	const incrementNumSteps = () => {
+		const newNumSteps = parseInt(formState.numSteps) + 1;
+		const stepsArray = [];
+		const steps = [];
+
+		for (let i=1; i<=newNumSteps; i++) {
+			stepsArray.push(i)
+			let item = {}
+			item["step-" + i] = '';
+			item["time-" + i] = null;
+			steps.push(item)
+		};
+		
+		setFormState({
+			...formState,
+			numSteps: newNumSteps,
+			stepsArray,
+			steps
+		});
+	};
+
+	const decrementNumSteps = () => {
+		const newNumSteps = parseInt(formState.numSteps) - 1;
+
+		if (newNumSteps > 0){
+			const stepsArray = [];
+			const steps = [];
+	
+			for (let i=1; i<=newNumSteps; i++) {
+				stepsArray.push(i)
+				let item = {}
+				item["step-" + i] = '';
+				item["time-" + i] = null;
+				steps.push(item)
+			};
+			
+			setFormState({
+				...formState,
+				numSteps: newNumSteps,
+				stepsArray,
+				steps
+			});
+		}
+	}
+
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		try {
@@ -40,12 +90,14 @@ const CreateDishForm = () => {
 		}
 	};
 
+
 	return (
 		<div>
 			<Message>
 				<Header as="h3">Create a new dish</Header>
 			</Message>
 			<Form className="attached fluid segment" onSubmit={handleFormSubmit}>
+			
 				<Form.Input
 					label="Dish Title"
 					placeholder="name of dish"
@@ -70,6 +122,31 @@ const CreateDishForm = () => {
 					onChange={handleChange}
 					name="image"
 				/>
+					{formState.stepsArray.map( (id) => (
+					
+						<Form.Group>
+							<Form.Input
+								name={`step-${id}`}
+								label={`Step ${id}`}
+								placeholder="boil water"
+								type="text"
+								width={12}
+							/>
+							<Form.Input
+								name={`time-${id}`}
+								label="Time"
+								placeholder="minutes"
+								type="number"
+								width={4}
+							/>
+						</Form.Group>
+					
+				))}
+				<Button.Group size='small'>
+    				<Button onClick={decrementNumSteps}>-</Button>
+    				<Button.Or />
+    				<Button onClick={incrementNumSteps}>+</Button>
+  				</Button.Group>
 				<Form.Input
 					label="Cook Time"
 					placeholder="cook time"
