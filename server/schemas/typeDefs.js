@@ -19,14 +19,8 @@ const typeDefs = gql`
 		image: String
 		ingredients: String
 		recipe: String
-		instructions: Instructions
+		instructions: [Step]!
 		cook_time: Int
-	}
-
-	type Instructions {
-		_id: ID
-		total_time: Int
-		steps: [Step]
 	}
 
 	type Step {
@@ -66,8 +60,8 @@ const typeDefs = gql`
 			description: String!
 			image: String
 			ingredients: String!
-			recipe: String!
 			cook_time: Int
+			userId : ID!
 		): Dish
 		addInstructions(dishId: ID!): Dish
 		addStep(instructionId: ID!, time: Int, step: String!): Dish

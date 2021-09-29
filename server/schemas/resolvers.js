@@ -90,7 +90,7 @@ const resolvers = {
 
 		uploadDish: async (
 			_,
-			{ title, username, description, image, ingredients, recipe, cook_time },
+			{ title, username, description, image, ingredients, cook_time, userId },
 			context
 		) => {
 			//if (context.user) {
@@ -108,15 +108,18 @@ const resolvers = {
 			//   $push: { created_dishes: newDish },
 			// });
 
-			const newDish = Dish.create({
+			const newDish = await Dish.create({
 				title,
 				username,
 				description,
 				image,
 				ingredients,
-				recipe,
 				cook_time,
 			});
+
+			const updatedUser = await User.findByIdAndUpdate(userId, {
+				$addToSet: { created_dishes: newDish._id }
+			})
 
 			return newDish;
 			// }
