@@ -9,7 +9,6 @@ const dishSchema = new Schema({
   },
   username: {
     type: String,
-    required: true,
     trim: true,
   },
   image: {

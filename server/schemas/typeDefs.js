@@ -19,7 +19,7 @@ const typeDefs = gql`
 		image: String
 		ingredients: String
 		recipe: String
-		instructions: [Step]!
+		instructions: [Step]
 		cook_time: Int
 	}
 
@@ -55,7 +55,6 @@ const typeDefs = gql`
 		login(email: String!, password: String!): Auth
 		uploadDish(
 			title: String!
-			username: String!
 			description: String!
 			image: String
 			ingredients: String!

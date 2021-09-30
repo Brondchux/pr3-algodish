@@ -1,7 +1,7 @@
 import { Message, Form, Icon, Header, Button } from "semantic-ui-react";
 import MainButton from "../MainButton";
 import { useMutation } from "@apollo/client";
-import { CREATE_NEW_DISH } from "../../utils/mutations";
+import { CREATE_NEW_DISH, ADD_STEP_TO_DISH_INSTRUCTIONS } from "../../utils/mutations";
 import React, { useState } from "react";
 import { generateRandomId } from "../TestDishes/index";
 import Auth from "../../utils/auth";
@@ -11,6 +11,7 @@ const CreateDishForm = () => {
 	const [formState, setFormState] = useState({
 		title: "",
 		username: Auth.getUsername(),
+		userId: Auth.getUserId(),
 		description: "",
 		image: "",
 		ingredients: "",
@@ -18,33 +19,64 @@ const CreateDishForm = () => {
 		numSteps: 1,
 		instruction: [],
 		cook_time: generateRandomId(), //parseInt('233')
-		steps : [],
+		steps : [{"step-1": ' ', "time-1": 0}],
 		stepsArray: [1]
 	});
 
 	const [createNewDish] = useMutation(CREATE_NEW_DISH);
+	const [addInstructionsToDish] = useMutation(ADD_STEP_TO_DISH_INSTRUCTIONS)
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
+		const num = event.target.valueAsNumber;
+		
+		if (name.includes('step-')){
+			const steps = formState.steps;
 
-		setFormState({
-			...formState,
-			[name]: value,
-		});
+			steps.forEach( (item, index) => {
+				if (item[name]){
+					steps[index][name] = value
+				}
+			})
+
+			setFormState({
+				...formState,
+				steps,
+			});
+		} else if (name.includes('time-')){
+			const steps = formState.steps;
+
+			steps.forEach( (item, index) => {
+				if (item[name] >= 0) {
+					steps[index][name] = num;
+				}; 
+			});
+
+			setFormState({
+				...formState,
+				steps,
+			});
+		} else {
+			setFormState({
+				...formState,
+				[name]: value,
+			});
+		}
 	};
 
 	const incrementNumSteps = () => {
 		const newNumSteps = parseInt(formState.numSteps) + 1;
-		const stepsArray = [];
-		const steps = [];
+		const stepsArray = formState.stepsArray;
+		const steps = formState.steps;
+		stepsArray.push(newNumSteps)
 
-		for (let i=1; i<=newNumSteps; i++) {
-			stepsArray.push(i)
-			let item = {}
-			item["step-" + i] = '';
-			item["time-" + i] = null;
-			steps.push(item)
-		};
+		let item = {}
+			
+		item["step-" + newNumSteps] = ' ';
+		item["time-" + newNumSteps] = 0;
+			
+		steps.push(item)
+		
 		
 		setFormState({
 			...formState,
@@ -52,23 +84,19 @@ const CreateDishForm = () => {
 			stepsArray,
 			steps
 		});
+		console.log(formState)
 	};
 
 	const decrementNumSteps = () => {
 		const newNumSteps = parseInt(formState.numSteps) - 1;
 
 		if (newNumSteps > 0){
-			const stepsArray = [];
-			const steps = [];
-	
-			for (let i=1; i<=newNumSteps; i++) {
-				stepsArray.push(i)
-				let item = {}
-				item["step-" + i] = '';
-				item["time-" + i] = null;
-				steps.push(item)
-			};
+			const stepsArray = formState.stepsArray;
+			stepsArray.pop();
 			
+			const steps = formState.steps;
+			steps.pop();
+	
 			setFormState({
 				...formState,
 				numSteps: newNumSteps,
@@ -82,11 +110,31 @@ const CreateDishForm = () => {
 		event.preventDefault();
 		try {
 			const { data } = await createNewDish({
-				variables: { ...formState },
+				variables: { 
+					title: formState.title,
+					description: formState.description,
+					image: formState.image,
+					ingredients: formState.ingredients,
+					cook_time: formState.cook_time,
+					userId: formState.userId 
+				},
 			});
-			window.location = `/dish/${data.uploadDish._id}`;
-		} catch (e) {
-			console.error(e);
+			const currentDishId = data.uploadDish._id;
+
+			formState.steps.forEach( async (value, index) => {
+				const currentStep = value[`step-${index}`]
+				const currentTime = value[`time-${index}`]
+
+				const newStep = await addInstructionsToDish({
+					step: currentStep,
+					time: currentTime,
+					dishId: currentDishId
+				}) 
+			})
+
+			window.location = `/dish/${currentDishId}`;
+			} catch (e) {
+				console.error(e);
 		}
 	};
 
@@ -122,24 +170,28 @@ const CreateDishForm = () => {
 					onChange={handleChange}
 					name="image"
 				/>
-					{formState.stepsArray.map( (id) => (
+				{formState.stepsArray.map( (id) => (
 					
-						<Form.Group>
-							<Form.Input
-								name={`step-${id}`}
-								label={`Step ${id}`}
-								placeholder="boil water"
-								type="text"
-								width={12}
-							/>
-							<Form.Input
-								name={`time-${id}`}
-								label="Time"
-								placeholder="minutes"
-								type="number"
-								width={4}
-							/>
-						</Form.Group>
+					<Form.Group key={id}>
+						<Form.Input
+							name={`step-${id}`}
+							label={`Step ${id}`}
+							placeholder="boil water"
+							type="text"
+							width={12}
+							onChange={handleChange}
+							data-field="step"
+						/>
+						<Form.Input
+							name={`time-${id}`}
+							label="Time"
+							placeholder="minutes"
+							type="number"
+							width={4}
+							onChange={handleChange}
+							data-field='time'
+						/>
+					</Form.Group>
 					
 				))}
 				<Button.Group size='small'>
@@ -162,14 +214,6 @@ const CreateDishForm = () => {
 					value={formState.ingredients}
 					onChange={handleChange}
 					name="ingredients"
-				/>
-				<Form.TextArea
-					label="Dish Procedure"
-					placeholder="example: step 1, heat water for 5 mins;"
-					rows={5}
-					value={formState.recipe}
-					onChange={handleChange}
-					name="recipe"
 				/>
 				<MainButton title="Submit Dish"></MainButton>
 			</Form>

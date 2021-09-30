@@ -110,11 +110,11 @@ const resolvers = {
 
 			const newDish = await Dish.create({
 				title,
-				username,
 				description,
 				image,
 				ingredients,
 				cook_time,
+				userId
 			});
 
 			const updatedUser = await User.findByIdAndUpdate(userId, 
