@@ -39,7 +39,7 @@ export const FETCH_WHOLE_DISH_BY_ID = gql`
 			description
 			cook_time
 			ingredients
-			recipe
+			instructions
 		}
 	}
 `;
@@ -69,6 +69,7 @@ export const FETCH_CREATED_DISHES_BY_USERNAME = gql`
 			description
 			cook_time
 			ingredients
+			instructions
 		}
 	}
 `;

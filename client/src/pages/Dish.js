@@ -27,6 +27,7 @@ const Dish = () => {
 		username,
 		description,
 		ingredients,
+		instructions,
 		recipe,
 		cook_time,
 	} = data?.dishById || {};
@@ -72,13 +73,12 @@ const Dish = () => {
 					<Message>
 						<Message.Header>Recipe</Message.Header>
 						<Segment>
-							{recipeList
-								.slice(0, recipeList.length - 1)
-								.map((recipe, index) => (
+							{instructions
+								.map((step, index) => (
 									<List key={index} divided inverted relaxed>
 										<List.Item>
 											<List.Content>
-												{index + 1}. {recipe}
+												{index + 1}. {step.step} [{step.time} min.]
 											</List.Content>
 										</List.Item>
 									</List>
