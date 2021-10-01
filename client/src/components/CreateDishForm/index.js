@@ -139,9 +139,11 @@ const CreateDishForm = () => {
 			console.log(currentDishId)
 
 
-			formState.steps.forEach( async (value, index) => {
-				const currentStep = value[`step-${index+1}`]
-				const currentTime = value[`time-${index+1}`]
+			for ( let i=0; i<formState.steps.length; i++) {
+				const element = formState.steps[i]
+				
+				const currentStep = element[`step-${i+1}`]
+				const currentTime = element[`time-${i+1}`]
 				console.log(currentStep)
 				console.log(currentTime)
 
@@ -152,7 +154,22 @@ const CreateDishForm = () => {
 						dishId: currentDishId
 					},
 				}); 
-			});
+			}
+			
+			// formState.steps.forEach( async (value, index) => {
+			// 	const currentStep = value[`step-${index+1}`]
+			// 	const currentTime = value[`time-${index+1}`]
+			// 	console.log(currentStep)
+			// 	console.log(currentTime)
+
+			// 	const newStep = await addInstructionsToDish({
+			// 		variables: {
+			// 			step: currentStep,
+			// 			time: currentTime,
+			// 			dishId: currentDishId
+			// 		},
+			// 	}); 
+			// });
 
 			window.location = `/dish/${currentDishId}`;
 			} catch (e) {
