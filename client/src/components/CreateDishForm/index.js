@@ -1,4 +1,4 @@
-import { Message, Form, Icon, Header, Button } from "semantic-ui-react";
+import { Message, Form, Icon, Header, Button, Transition } from "semantic-ui-react";
 import MainButton from "../MainButton";
 import { useMutation } from "@apollo/client";
 import { CREATE_NEW_DISH, ADD_STEP_TO_DISH_INSTRUCTIONS } from "../../utils/mutations";
@@ -209,31 +209,40 @@ const CreateDishForm = () => {
 					onChange={handleChange}
 					name="image"
 				/>
-				{formState.stepsArray.map( (id) => (
-					
-					<Form.Group key={id}>
-						<Form.Input
-							name={`step-${id}`}
-							label={`Step ${id}`}
-							placeholder="boil water"
-							type="text"
-							width={12}
-							onChange={handleChange}
-							data-field="step"
-						/>
-						<Form.Input
-							name={`time-${id}`}
-							label="Time"
-							placeholder="minutes"
-							type="number"
-							min={0}
-							width={4}
-							onChange={handleChange}
-							data-field='time'
-						/>
-					</Form.Group>
-					
-				))}
+				 <Transition.Group
+					// as={List}
+					duration={200}
+					animation="pulse"
+					// divided
+					// size='huge'
+					// verticalAlign='middle'
+					>
+						{formState.stepsArray.map( (id) => (
+							<Form.Group key={id}>
+								<Form.Input
+									name={`step-${id}`}
+									label={`Step ${id}`}
+									placeholder="boil water"
+									type="text"
+									width={12}
+									onChange={handleChange}
+									data-field="step"
+								/>
+								<Form.Input
+									name={`time-${id}`}
+									label="Time"
+									placeholder="minutes"
+									type="number"
+									min={0}
+									width={2}
+									onChange={handleChange}
+									data-field='time'
+								/>
+							</Form.Group>							
+						))}
+				</Transition.Group>
+				
+			
 				<Button.Group size='small'>
     				<Button onClick={decrementNumSteps}>-</Button>
     				<Button.Or />
