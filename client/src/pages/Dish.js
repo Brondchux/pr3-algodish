@@ -20,6 +20,7 @@ const Dish = () => {
 	const { loading, data } = useQuery(FETCH_WHOLE_DISH_BY_ID, {
 		variables: { id: dishId },
 	});
+	console.log(data?.dishById)
 
 	const {
 		title,
@@ -34,6 +35,8 @@ const Dish = () => {
 
 	const ingredientsList = ingredients ? ingredients.split(",") : [];
 	const recipeList = recipe ? recipe.split(".") : [];
+
+	console.log(instructions)
 
 	return (
 		<Segment basic padded="very">
@@ -77,8 +80,9 @@ const Dish = () => {
 								.map((step, index) => (
 									<List key={index} divided inverted relaxed>
 										<List.Item>
-											<List.Content>
-												{index + 1}. {step.step} [{step.time} min.]
+											<List.Content >
+												<Segment left floated>{index + 1}. {step.step}</Segment>
+												<Segment right floated>{step.time} min.</Segment>
 											</List.Content>
 										</List.Item>
 									</List>

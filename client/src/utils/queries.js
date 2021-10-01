@@ -39,7 +39,10 @@ export const FETCH_WHOLE_DISH_BY_ID = gql`
 			description
 			cook_time
 			ingredients
-			instructions
+			instructions {
+		  		step
+				time
+			}
 		}
 	}
 `;

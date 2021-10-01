@@ -18,17 +18,30 @@ const CreateDishForm = () => {
 		recipe: "",
 		numSteps: 1,
 		instruction: [],
-		cook_time: generateRandomId(), //parseInt('233')
+		cook_time: 0, //parseInt('233')
 		steps : [{"step-1": ' ', "time-1": 0}],
 		stepsArray: [1]
 	});
 
 	const [createNewDish] = useMutation(CREATE_NEW_DISH);
-	const [addInstructionsToDish] = useMutation(ADD_STEP_TO_DISH_INSTRUCTIONS)
+	const [addInstructionsToDish] = useMutation(ADD_STEP_TO_DISH_INSTRUCTIONS);
+
+	const computeTotalCookTime = () => {
+		const steps = formState.steps;
+		let totalTime = 0;
+
+		steps.forEach( (item, index) => {
+			totalTime += item[`time-${index+1}`]
+		});
+
+		setFormState({
+			...formState,
+			cook_time: totalTime
+		});
+	}
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
-		const num = event.target.valueAsNumber;
 		
 		if (name.includes('step-')){
 			const steps = formState.steps;
@@ -45,16 +58,20 @@ const CreateDishForm = () => {
 			});
 		} else if (name.includes('time-')){
 			const steps = formState.steps;
+			const num = event.target.valueAsNumber;
+			let totalTime = 0;
 
 			steps.forEach( (item, index) => {
 				if (item[name] >= 0) {
 					steps[index][name] = num;
-				}; 
+				};
+				totalTime += item[`time-${index+1}`]
 			});
 
 			setFormState({
 				...formState,
 				steps,
+				cook_time: totalTime
 			});
 		} else {
 			setFormState({
@@ -64,7 +81,8 @@ const CreateDishForm = () => {
 		}
 	};
 
-	const incrementNumSteps = () => {
+	const incrementNumSteps = (event) => {
+		event.preventDefault();
 		const newNumSteps = parseInt(formState.numSteps) + 1;
 		const stepsArray = formState.stepsArray;
 		const steps = formState.steps;
@@ -77,17 +95,16 @@ const CreateDishForm = () => {
 			
 		steps.push(item)
 		
-		
 		setFormState({
 			...formState,
 			numSteps: newNumSteps,
 			stepsArray,
 			steps
 		});
-		console.log(formState)
 	};
 
-	const decrementNumSteps = () => {
+	const decrementNumSteps = (event) => {
+		event.preventDefault();
 		const newNumSteps = parseInt(formState.numSteps) - 1;
 
 		if (newNumSteps > 0){
@@ -187,6 +204,7 @@ const CreateDishForm = () => {
 							label="Time"
 							placeholder="minutes"
 							type="number"
+							min={0}
 							width={4}
 							onChange={handleChange}
 							data-field='time'
@@ -204,8 +222,8 @@ const CreateDishForm = () => {
 					placeholder="cook time"
 					type="text"
 					value={formState.cook_time}
-					onChange={handleChange}
 					name="cook_time"
+					readOnly
 				/>
 				<Form.TextArea
 					label="Dish Ingredients"
