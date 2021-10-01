@@ -1,4 +1,4 @@
-import { Header, Icon, Segment, Message, List, Grid, Item } from "semantic-ui-react";
+import { Header, Icon, Segment, Message, Progress } from "semantic-ui-react";
 import { FETCH_WHOLE_DISH_BY_ID } from "../utils/queries";
 import MainButton from "../components/MainButton";
 import { useQuery } from "@apollo/client";
@@ -27,6 +27,10 @@ const Cook = () => {
         <>
             <CookingBanner imageUrl={image} title={title} cook_time={cook_time}></CookingBanner>
             <Segment basic padded="very">
+            <div>
+                <Progress percent={33} size="big"/>
+                <Progress percent={12} size="big" indicating />
+            </div>
             {loading ? (
                 <Loading></Loading>
             ) : (
