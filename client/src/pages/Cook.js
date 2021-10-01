@@ -69,7 +69,7 @@ const Cook = () => {
             <Segment basic padded="very">
             <div>
                 <Progress percent={33} size="big"/>
-                <Progress percent={cookState.currentStep/cookState.steps.length * 100} size="big" indicating />
+                <Progress percent={cookState.currentStep/(cookState.steps.length-1) * 100} size="big" indicating />
             </div>
             {loading ? (
                 <Loading></Loading>

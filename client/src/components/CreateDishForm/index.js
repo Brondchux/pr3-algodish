@@ -65,6 +65,7 @@ const CreateDishForm = () => {
 				[name]: value,
 			});
 		}
+		console.log(formState)
 	};
 
 	const incrementNumSteps = (event) => {
@@ -129,20 +130,28 @@ const CreateDishForm = () => {
 					image: formState.image,
 					ingredients: formState.ingredients,
 					cook_time: formState.cook_time,
-					userId: formState.userId 
+					userId: formState.userId,
+					username: formState.username,
+					instructions: []
 				},
 			});
 			const currentDishId = data.uploadDish._id;
+			console.log(currentDishId)
+
 
 			formState.steps.forEach( async (value, index) => {
-				const currentStep = value[`step-${index}`]
-				const currentTime = value[`time-${index}`]
+				const currentStep = value[`step-${index+1}`]
+				const currentTime = value[`time-${index+1}`]
+				console.log(currentStep)
+				console.log(currentTime)
 
 				const newStep = await addInstructionsToDish({
-					step: currentStep,
-					time: currentTime,
-					dishId: currentDishId
-				}) 
+					variables: {
+						step: currentStep,
+						time: currentTime,
+						dishId: currentDishId
+					},
+				}); 
 			});
 
 			window.location = `/dish/${currentDishId}`;

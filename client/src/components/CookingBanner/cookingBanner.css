@@ -21,13 +21,15 @@ header {
 
 .title {
   font-size: 4rem;
-  color: var(--transparent-white);
+  color: var(--plain-white);
+  text-shadow: rgb(53, 53, 53) 1px 3px 5px;
 }
 
 .cookTime {
   font-size: 2rem;
   font-weight: 100;
   color: var(--transparent-white);
+  text-shadow: rgb(53, 53, 53) 1px 1px 1px;
   font-style: italic;
 }
 

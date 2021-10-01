@@ -26,7 +26,7 @@ const CookingBanner = ({imageUrl, title, cook_time}) => {
                         <h1 className="title">
                             {title}
 						</h1>
-                        <h2 className="cookTime">Estimated Cook Time: {cook_time} mins.</h2>
+                        <h2 className="cookTime">Estimated cook time: {cook_time} mins.</h2>
 					</Grid.Column>
 				</Grid.Row>
 			</div>

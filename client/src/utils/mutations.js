@@ -26,6 +26,7 @@ export const CREATE_NEW_DISH = gql`
 		$ingredients: String!
 		$cook_time: Int
 		$userId : ID!
+		$username: String!
 	) {
 		uploadDish(
 			title: $title
@@ -34,6 +35,7 @@ export const CREATE_NEW_DISH = gql`
 			ingredients: $ingredients
 			cook_time: $cook_time
 			userId: $userId
+			username: $username
 		) {
 			_id
 		}

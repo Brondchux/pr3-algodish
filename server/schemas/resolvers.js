@@ -114,6 +114,7 @@ const resolvers = {
 				image,
 				ingredients,
 				cook_time,
+				username,
 				userId
 			});
 

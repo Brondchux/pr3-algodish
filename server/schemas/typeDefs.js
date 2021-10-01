@@ -56,6 +56,7 @@ const typeDefs = gql`
 		uploadDish(
 			title: String!
 			description: String!
+			username: String!
 			image: String
 			ingredients: String!
 			cook_time: Int
