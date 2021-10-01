@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import CookingBanner from "../components/CookingBanner";
+import React, { useState } from "react";
 
 const Cook = () => {
     const { id: dishId } = useParams();
@@ -22,6 +23,15 @@ const Cook = () => {
 		recipe,
 		cook_time,
 	} = data?.dishById || {};
+
+    const [cookState, setCookState] = useState({
+        totalCookTime: cook_time,
+        totalTimePassed: 0,
+        currenStepTimePassed: 0,
+        currentStep: 0,
+        steps: instructions,
+        currentStep: 0
+    })
     
     return (
         <>
