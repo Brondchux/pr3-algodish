@@ -1,4 +1,5 @@
 import { Grid, Header } from "semantic-ui-react";
+import "./cookingBanner.css"
 
 const CookingBanner = ({imageUrl, title, cook_time}) => {
     const customStyle = {
@@ -22,12 +23,10 @@ const CookingBanner = ({imageUrl, title, cook_time}) => {
 			<div style={customStyle.wallpaper}>
 				<Grid.Row style={customStyle.search}>
 					<Grid.Column>
-                        <Header as="h1" size="massive" color="#ffffff">
+                        <h1 className="title">
                             {title}
-						</Header>
-                        <Header as="h3" size="massive" color="grey">
-                            {cook_time}
-						</Header>
+						</h1>
+                        <h2 className="cookTime">Estimated Cook Time: {cook_time} mins.</h2>
 					</Grid.Column>
 				</Grid.Row>
 			</div>

@@ -19,8 +19,16 @@ header {
   color: var(--plain-white);
 }
 
-.logo h1 {
-  font-size: 3rem;
+.title {
+  font-size: 4rem;
+  color: var(--transparent-white);
+}
+
+.cookTime {
+  font-size: 2rem;
+  font-weight: 100;
+  color: var(--transparent-white);
+  font-style: italic;
 }
 
 .dish {
