@@ -26,20 +26,6 @@ const CreateDishForm = () => {
 	const [createNewDish] = useMutation(CREATE_NEW_DISH);
 	const [addInstructionsToDish] = useMutation(ADD_STEP_TO_DISH_INSTRUCTIONS);
 
-	const computeTotalCookTime = () => {
-		const steps = formState.steps;
-		let totalTime = 0;
-
-		steps.forEach( (item, index) => {
-			totalTime += item[`time-${index+1}`]
-		});
-
-		setFormState({
-			...formState,
-			cook_time: totalTime
-		});
-	}
-
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		
@@ -86,20 +72,24 @@ const CreateDishForm = () => {
 		const newNumSteps = parseInt(formState.numSteps) + 1;
 		const stepsArray = formState.stepsArray;
 		const steps = formState.steps;
-		stepsArray.push(newNumSteps)
-
+		stepsArray.push(newNumSteps);
+		let totalTime = 0;
 		let item = {}
 			
 		item["step-" + newNumSteps] = ' ';
 		item["time-" + newNumSteps] = 0;
-			
 		steps.push(item)
+
+		steps.forEach( (item, index) => {
+			totalTime += item[`time-${index+1}`]
+		});
 		
 		setFormState({
 			...formState,
 			numSteps: newNumSteps,
 			stepsArray,
-			steps
+			steps,
+			cook_time: totalTime
 		});
 	};
 
@@ -109,16 +99,22 @@ const CreateDishForm = () => {
 
 		if (newNumSteps > 0){
 			const stepsArray = formState.stepsArray;
-			stepsArray.pop();
-			
 			const steps = formState.steps;
+			let totalTime = 0;
+
+			stepsArray.pop();		
 			steps.pop();
-	
+
+			steps.forEach( (item, index) => {
+				totalTime += item[`time-${index+1}`]
+			});
+
 			setFormState({
 				...formState,
 				numSteps: newNumSteps,
 				stepsArray,
-				steps
+				steps,
+				cook_time: totalTime
 			});
 		}
 	}
@@ -147,12 +143,12 @@ const CreateDishForm = () => {
 					time: currentTime,
 					dishId: currentDishId
 				}) 
-			})
+			});
 
 			window.location = `/dish/${currentDishId}`;
 			} catch (e) {
 				console.error(e);
-		}
+		};
 	};
 
 

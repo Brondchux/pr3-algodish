@@ -1,8 +1,10 @@
-import { Header, Icon, Segment, Message, List } from "semantic-ui-react";
+import { Header, Icon, Segment, Message, List, Grid } from "semantic-ui-react";
 import { FETCH_WHOLE_DISH_BY_ID } from "../utils/queries";
+import MainButton from "../components/MainButton";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 const Dish = () => {
 	const dishStyles = {
@@ -80,10 +82,14 @@ const Dish = () => {
 								.map((step, index) => (
 									<List key={index} divided inverted relaxed>
 										<List.Item>
-											<List.Content >
-												<Segment left floated>{index + 1}. {step.step}</Segment>
-												<Segment right floated>{step.time} min.</Segment>
-											</List.Content>
+											<Grid>
+												<Grid.Column floated="left" width={12}>
+												{index + 1}. {step.step}
+												</Grid.Column>
+												<Grid.Column textAlign="right" width={4}>
+												<i>{step.time} min.</i>
+												</Grid.Column>
+											</Grid>
 										</List.Item>
 									</List>
 								))}
@@ -101,6 +107,9 @@ const Dish = () => {
 							</List>
 						</Segment>
 					</Message>
+					<Link to={`/dish/${dishId}/cook`}>
+						<MainButton title="Cook With Me!"></MainButton>
+					</Link>
 				</Segment>
 			)}
 		</Segment>

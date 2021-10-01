@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Dish from "./pages/Dish";
+import Cook from "./pages/Cook"
 import Search from "./pages/Search";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -31,6 +32,9 @@ const App = () => {
 					</Route>
 					<Route exact path="/dish/:id">
 						<Dish></Dish>
+					</Route>
+					<Route exact path="/dish/:id/cook">
+						<Cook></Cook>
 					</Route>
 					<Route exact path="/search/:query">
 						<Search></Search>
