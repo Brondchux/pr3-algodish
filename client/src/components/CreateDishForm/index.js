@@ -44,7 +44,7 @@ const CreateDishForm = () => {
 			});
 		} else if (name.includes('time-')){
 			const steps = formState.steps;
-			const num = event.target.valueAsNumber;
+			const num = isNaN(event.target.valueAsNumber)? 0: event.target.valueAsNumber;
 			let totalTime = 0;
 
 			steps.forEach( (item, index) => {
