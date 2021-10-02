@@ -49,7 +49,8 @@ const CreateDishForm = () => {
 
 			steps.forEach( (item, index) => {
 				if (item[name] >= 0) {
-					steps[index][name] = num;
+					// steps[index][name] = num;
+					item[name] = num;
 				};
 				totalTime += item[`time-${index+1}`]
 			});
