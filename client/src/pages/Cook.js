@@ -116,10 +116,6 @@ const Cook = () => {
                     <Message>
                         <Message.Header>Ingredients</Message.Header>
                         <List link>
-                            {/* <List.Item active as='a' target="_blank" href='https://en.wikipedia.org/wiki/Thyme'>Home</List.Item>
-                            <List.Item as='a' target="_blank">About</List.Item>
-                            <List.Item as='a' target="_blank">Jobs</List.Item>
-                            <List.Item as='a' target="_blank">Team</List.Item> */}
                             { ingredientsList.map( ingredient => {
                                 if (cookState.steps[cookState.currentStep].step.includes(ingredient)){
                                     return <List.Item active as='a' target="_blank" href={`https://en.wikipedia.org/wiki/${ingredient}`}>{ingredient}</List.Item>
