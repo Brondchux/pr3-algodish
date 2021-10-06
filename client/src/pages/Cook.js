@@ -1,4 +1,4 @@
-import { Header, Icon, Segment, Message, Progress, Button, List } from "semantic-ui-react";
+import { Header, Icon, Segment, Message, Progress, Button, List, Statistic } from "semantic-ui-react";
 import { FETCH_WHOLE_DISH_BY_ID } from "../utils/queries";
 import MainButton from "../components/MainButton";
 import { useQuery } from "@apollo/client";
@@ -30,7 +30,8 @@ const Cook = () => {
     const [cookState, setCookState] = useState({
         totalCookTime: cook_time,
         totalTimePassed: 0,
-        currenStepTimePassed: 0,
+        currentStepTimePassed: 0,
+        currentStepTime: instructions[0]["time"]*60,
         steps: instructions,
         currentStep: 0,
         cookTimer: '',
@@ -48,15 +49,22 @@ const Cook = () => {
         let timer = null;
 
         if (cookState.timerOn) {
-            let currentStepTime = cookState.steps[cookState.currentStep]["time"]*60;
+            let currentStepTime = cookState.cookTimer;
             timer = setInterval(() => { 
-                if(currentStepTime){
+                if (currentStepTime){
                     currentStepTime--;
                     setCookState({
                         ...cookState,
-                        cookTimer: minutesToTimeString(currentStepTime)
+                        cookTimer: currentStepTime,
+                        currentStepTimePassed: cookState.currentStepTimePassed++
                     })
-                };  
+                } else {
+                    incrementStep();
+                    setCookState({
+                        ...cookState,
+                        currentStepTimePassed: 0
+                    })
+                }  
             } , 1000);
         } else {
             clearInterval(timer);
@@ -68,15 +76,17 @@ const Cook = () => {
         event.preventDefault();
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
-        let currentStepTime = cookState.steps[currentStep]["time"]*60;
 
         if ( currentStep < numSteps ) {
             currentStep++
+            let currentStepTime = cookState.steps[currentStep]["time"]*60;
             setCookState({
                 ...cookState,
                 currentStep,
-                cookTimer: minutesToTimeString(currentStepTime),
-                timerOn: false
+                cookTimer: currentStepTime,
+                currentStepTime,
+                timerOn: false,
+                currentStepTimePassed: 0
             })
         };
     };
@@ -85,15 +95,17 @@ const Cook = () => {
         event.preventDefault();
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
-        let currentStepTime = cookState.steps[currentStep]["time"]*60;
 
         if ( currentStep > 0) {
-            currentStep--
+            currentStep--;
+            let currentStepTime = cookState.steps[currentStep]["time"]*60;
             setCookState({
                 ...cookState,
                 currentStep,
-                cookTimer: minutesToTimeString(currentStepTime),
-                timerOn: false
+                cookTimer: currentStepTime,
+                currentStepTime,
+                timerOn: false,
+                currentStepTimePassed: 0
             })
         };
     };
@@ -131,9 +143,20 @@ const Cook = () => {
             <CookingBanner imageUrl={image} title={title} cook_time={cook_time}></CookingBanner>
             <Segment basic padded="very">
             <div>
-                <Progress percent={(cookState.totalTimePassed/cookState.totalCookTime) * 100} size="big"/>
-                <Progress percent={cookState.currentStep/(cookState.steps.length-1) * 100} size="big" indicating />
-                {cookState.cookTimer}
+                       
+                <Segment padded="very" inverted textAlign="center">
+                    <Progress percent={(cookState.totalTimePassed/cookState.totalCookTime) * 100} size="big"/>
+                    <Progress percent={(cookState.currentStepTime - cookState.cookTimer)/cookState.currentStepTime * 100} size="big" indicating />
+                    <Statistic color='red' inverted>
+                    <Statistic.Value>{minutesToTimeString(cookState.cookTimer).substring(0,minutesToTimeString(cookState.cookTimer).indexOf(':'))}</Statistic.Value>
+                    <Statistic.Label>Minutes</Statistic.Label>
+                    </Statistic>
+                    <Statistic color='brown' inverted>
+                    <Statistic.Value>{minutesToTimeString(cookState.cookTimer).substring(minutesToTimeString(cookState.cookTimer).indexOf(':')+1,)}</Statistic.Value>
+                    <Statistic.Label>Seconds</Statistic.Label>
+                    </Statistic>
+                </Segment>
+
             </div>
             {loading ? (
                 <Loading></Loading>
