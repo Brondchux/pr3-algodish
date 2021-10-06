@@ -25,7 +25,7 @@ const Cook = () => {
 		cook_time,
 	} = data?.dishById || {};
 
-    const ingredientsList = ingredients.split(',').map(item => item.trim())
+    const ingredientsList = ingredients.split(',').map(item => item.toLowerCase().trim())
 
     const [cookState, setCookState] = useState({
         totalCookTime: cook_time,
@@ -60,10 +60,6 @@ const Cook = () => {
                     })
                 } else {
                     incrementStep();
-                    setCookState({
-                        ...cookState,
-                        currentStepTimePassed: 0
-                    })
                 }  
             } , 1000);
         } else {
@@ -73,7 +69,7 @@ const Cook = () => {
     }, [cookState.timerOn]);
 
     const incrementStep = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
 
@@ -92,7 +88,7 @@ const Cook = () => {
     };
 
     const decrementStep = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
 
