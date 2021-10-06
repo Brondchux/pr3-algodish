@@ -5,14 +5,15 @@ import { useQuery } from "@apollo/client";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import CookingBanner from "../components/CookingBanner";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { valueFromASTUntyped } from "graphql";
 
 const Cook = () => {
     const { id: dishId } = useParams();
 	const { loading, data } = useQuery(FETCH_WHOLE_DISH_BY_ID, {
 		variables: { id: dishId },
 	});
-
+    
     const {
 		title,
 		image,
@@ -32,19 +33,50 @@ const Cook = () => {
         currenStepTimePassed: 0,
         steps: instructions,
         currentStep: 0,
-        cookTimer: ''
+        cookTimer: '',
+        timerOn: false
     })
-    
+
+    const setTimerOn = (val) => {
+        setCookState({
+            ...cookState,
+            timerOn: val
+        })
+    };
+
+    useEffect(() => {
+        let timer = null;
+
+        if (cookState.timerOn) {
+            let currentStepTime = cookState.steps[cookState.currentStep]["time"]*60;
+            timer = setInterval(() => { 
+                if(currentStepTime){
+                    currentStepTime--;
+                    setCookState({
+                        ...cookState,
+                        cookTimer: minutesToTimeString(currentStepTime)
+                    })
+                };  
+            } , 1000);
+        } else {
+            clearInterval(timer);
+        }
+        return () => clearInterval(timer)
+    }, [cookState.timerOn]);
+
     const incrementStep = (event) => {
         event.preventDefault();
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
+        let currentStepTime = cookState.steps[currentStep]["time"]*60;
 
         if ( currentStep < numSteps ) {
             currentStep++
             setCookState({
                 ...cookState,
-                currentStep
+                currentStep,
+                cookTimer: minutesToTimeString(currentStepTime),
+                timerOn: false
             })
         };
     };
@@ -53,12 +85,15 @@ const Cook = () => {
         event.preventDefault();
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
+        let currentStepTime = cookState.steps[currentStep]["time"]*60;
 
         if ( currentStep > 0) {
             currentStep--
             setCookState({
                 ...cookState,
-                currentStep
+                currentStep,
+                cookTimer: minutesToTimeString(currentStepTime),
+                timerOn: false
             })
         };
     };
@@ -70,20 +105,22 @@ const Cook = () => {
         return `${minutesAsString}:${secondsAsString}`;
     }
 
-    const startTimer = (event) => {
-        event.preventDefault();
-        let currentStepTime = cookState.steps[cookState.currentStep]["time"]*60;
-        console.log(currentStepTime)
-        setInterval(() => { 
-            if(currentStepTime){
-                currentStepTime--;
-                setCookState({
-                    ...cookState,
-                    cookTimer: minutesToTimeString(currentStepTime)
-                })
-            };  
-        } , 1000);
-    }
+    // const startTimer = (event) => {
+    //     event.preventDefault();
+        
+    //     let currentStepTime = cookState.steps[cookState.currentStep]["time"]*60;
+    //     console.log(currentStepTime)
+        
+    //     timer = setInterval(() => { 
+    //         if(currentStepTime){
+    //             currentStepTime--;
+    //             setCookState({
+    //                 ...cookState,
+    //                 cookTimer: minutesToTimeString(currentStepTime)
+    //             })
+    //         };  
+    //     } , 1000);
+    // }
     
 
     console.log(cookState.steps)
@@ -94,7 +131,7 @@ const Cook = () => {
             <CookingBanner imageUrl={image} title={title} cook_time={cook_time}></CookingBanner>
             <Segment basic padded="very">
             <div>
-                <Progress percent={33} size="big"/>
+                <Progress percent={(cookState.totalTimePassed/cookState.totalCookTime) * 100} size="big"/>
                 <Progress percent={cookState.currentStep/(cookState.steps.length-1) * 100} size="big" indicating />
                 {cookState.cookTimer}
             </div>
@@ -109,7 +146,12 @@ const Cook = () => {
                     <Header textAlign="center">
                         <Button.Group>
                             <Button onClick={decrementStep} labelPosition='left' icon='left chevron' content='Back' />
-                            <Button onClick={startTimer} labelPosition='right' icon='play' />
+                            { cookState.timerOn ? (
+                                <Button onClick={() => setTimerOn(false)} labelPosition='right' icon='stop' />
+                            ) : (
+                                <Button onClick={() => setTimerOn(true)} labelPosition='right' icon='play' />
+                            )}
+                            
                             <Button onClick={incrementStep} labelPosition='right' icon='right chevron' content='Forward' />
                         </Button.Group>
                     </Header>
