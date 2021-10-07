@@ -1,12 +1,10 @@
 import { Header, Icon, Segment, Message, Progress, Button, List, Statistic } from "semantic-ui-react";
 import { FETCH_WHOLE_DISH_BY_ID } from "../utils/queries";
-import MainButton from "../components/MainButton";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
 import CookingBanner from "../components/CookingBanner";
 import React, { useState, useEffect } from "react";
-import { valueFromASTUntyped } from "graphql";
 
 const Cook = () => {
     const { id: dishId } = useParams();
@@ -14,30 +12,30 @@ const Cook = () => {
 		variables: { id: dishId },
 	});
     
+    console.log(dishId)
+    console.log(data)
+
     const {
 		title,
 		image,
-		username,
-		description,
 		ingredients,
 		instructions,
-		recipe,
 		cook_time,
 	} = data?.dishById || {};
 
-    const ingredientsList = ingredients.split(',').map(item => item.toLowerCase().trim())
-
+    const ingredientsList = ingredients ? ingredients.split(',').map(item => item.toLowerCase().trim()) : [];
+  
     const [cookState, setCookState] = useState({
         totalCookTime: cook_time,
         totalTimePassed: 0,
         currentStepTimePassed: 0,
-        currentStepTime: instructions[0]["time"]*60,
-        steps: instructions,
+        currentStepTime: instructions ? instructions[0]["time"]*60 : 0,
+        steps: instructions ? instructions : [],
         currentStep: 0,
         cookTimer: '',
         timerOn: false
     })
-
+    console.log(cookState)
     const setTimerOn = (val) => {
         setCookState({
             ...cookState,
@@ -68,8 +66,7 @@ const Cook = () => {
         return () => clearInterval(timer)
     }, [cookState.timerOn]);
 
-    const incrementStep = (event) => {
-        // event.preventDefault();
+    const incrementStep = () => {
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
 
@@ -87,8 +84,7 @@ const Cook = () => {
         };
     };
 
-    const decrementStep = (event) => {
-        // event.preventDefault();
+    const decrementStep = () => {
         let currentStep = cookState.currentStep;
         const numSteps = cookState.steps.length - 1;
 
@@ -112,24 +108,6 @@ const Cook = () => {
 
         return `${minutesAsString}:${secondsAsString}`;
     }
-
-    // const startTimer = (event) => {
-    //     event.preventDefault();
-        
-    //     let currentStepTime = cookState.steps[cookState.currentStep]["time"]*60;
-    //     console.log(currentStepTime)
-        
-    //     timer = setInterval(() => { 
-    //         if(currentStepTime){
-    //             currentStepTime--;
-    //             setCookState({
-    //                 ...cookState,
-    //                 cookTimer: minutesToTimeString(currentStepTime)
-    //             })
-    //         };  
-    //     } , 1000);
-    // }
-    
 
     console.log(cookState.steps)
     console.log(ingredientsList)
@@ -160,15 +138,15 @@ const Cook = () => {
                 <Segment raised padded="very">
                 
                     <Header as="h3" size="huge" textAlign="center">
-                        <p><Icon name="utensils"></Icon> {cookState.steps[cookState.currentStep].step} <Icon name="utensils"></Icon></p>
+                        <p><Icon name="utensils"></Icon> { cookState.steps.length ? cookState.steps[cookState.currentStep].step : "" } <Icon name="utensils"></Icon></p>
                     </Header>
                     <Header textAlign="center">
                         <Button.Group>
                             <Button onClick={decrementStep} labelPosition='left' icon='left chevron' content='Back' />
                             { cookState.timerOn ? (
-                                <Button onClick={() => setTimerOn(false)} labelPosition='right' icon='stop' />
+                                <Button onClick={() => setTimerOn(false)} icon='stop' />
                             ) : (
-                                <Button onClick={() => setTimerOn(true)} labelPosition='right' icon='play' />
+                                <Button onClick={() => setTimerOn(true)} icon='play' />
                             )}
                             
                             <Button onClick={incrementStep} labelPosition='right' icon='right chevron' content='Forward' />
@@ -177,13 +155,18 @@ const Cook = () => {
                     <Message>
                         <Message.Header>Ingredients</Message.Header>
                         <List link>
-                            { ingredientsList.map( ingredient => {
+                            { ingredientsList.length && cookState.steps.length ? (
+                            ingredientsList.map( ingredient => {
                                 if (cookState.steps[cookState.currentStep].step.includes(ingredient)){
                                     return <List.Item active as='a' target="_blank" href={`https://en.wikipedia.org/wiki/${ingredient}`}>{ingredient}</List.Item>
                                 } else {
                                     return <List.Item as='a' target="_blank" href={`https://en.wikipedia.org/wiki/${ingredient}`}>{ingredient}</List.Item>
                                 }
-                            }) }
+                            }) 
+                            ): (
+                                <></>
+                            )
+                            }
                         </List>
                     </Message>                     
                 </Segment>

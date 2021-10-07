@@ -3,9 +3,7 @@ import MainButton from "../MainButton";
 import { useMutation } from "@apollo/client";
 import { CREATE_NEW_DISH, ADD_STEP_TO_DISH_INSTRUCTIONS } from "../../utils/mutations";
 import React, { useState } from "react";
-import { generateRandomId } from "../TestDishes/index";
 import Auth from "../../utils/auth";
-import { parse } from "graphql";
 
 const CreateDishForm = () => {
 	const [formState, setFormState] = useState({

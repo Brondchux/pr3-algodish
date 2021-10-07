@@ -1,4 +1,4 @@
-import { Grid, Header } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import "./cookingBanner.css"
 
 const CookingBanner = ({imageUrl, title, cook_time}) => {
