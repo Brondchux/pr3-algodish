@@ -26,7 +26,7 @@ const Cook = () => {
     const ingredientsList = ingredients ? ingredients.split(',').map(item => item.toLowerCase().trim()) : [];
   
     const [cookState, setCookState] = useState({
-        totalCookTime: cook_time,
+        totalCookTime: cook_time*60,
         totalTimePassed: 0,
         currentStepTimePassed: 0,
         currentStepTime: instructions ? instructions[0]["time"]*60 : 0,
@@ -71,6 +71,7 @@ const Cook = () => {
         const numSteps = cookState.steps.length - 1;
 
         if ( currentStep < numSteps ) {
+            let elapsedTime = cookState.steps[currentStep]["time"]*60;
             currentStep++
             let currentStepTime = cookState.steps[currentStep]["time"]*60;
             setCookState({
@@ -78,10 +79,27 @@ const Cook = () => {
                 currentStep,
                 cookTimer: currentStepTime,
                 currentStepTime,
+                totalTimePassed: cookState.totalTimePassed + elapsedTime,
                 timerOn: false,
                 currentStepTimePassed: 0
             })
-        };
+            console.log('Total Time passed:', cookState.totalTimePassed);
+            console.log('Total Cook Time:',cookState.totalCookTime)
+        } 
+        // else if ( currentStep === numSteps) {
+        //     let elapsedTime = cookState.steps[currentStep]["time"]*60;
+        //     currentStep++
+        //     let currentStepTime = 0;
+        //     setCookState({
+        //         ...cookState,
+        //         currentStep,
+        //         cookTimer: currentStepTime,
+        //         currentStepTime,
+        //         totalTimePassed: cookState.totalTimePassed + elapsedTime,
+        //         timerOn: false,
+        //         currentStepTimePassed: 0
+        //     })
+        // }
     };
 
     const decrementStep = () => {
@@ -89,12 +107,14 @@ const Cook = () => {
         const numSteps = cookState.steps.length - 1;
 
         if ( currentStep > 0) {
+            let elapsedTime = cookState.steps[currentStep-1]["time"]*60;
             currentStep--;
             let currentStepTime = cookState.steps[currentStep]["time"]*60;
             setCookState({
                 ...cookState,
                 currentStep,
                 cookTimer: currentStepTime,
+                totalTimePassed: cookState.totalTimePassed - elapsedTime,
                 currentStepTime,
                 timerOn: false,
                 currentStepTimePassed: 0
@@ -136,20 +156,22 @@ const Cook = () => {
                 <Loading></Loading>
             ) : (
                 <Segment raised padded="very">
-                
+                    <Header as="h3" size="huge" textAlign="center">
+                        <p> { `Step ${(cookState.currentStep + 1)}:`} </p>
+                    </Header>
                     <Header as="h3" size="huge" textAlign="center">
                         <p><Icon name="utensils"></Icon> { cookState.steps.length ? cookState.steps[cookState.currentStep].step : "" } <Icon name="utensils"></Icon></p>
                     </Header>
                     <Header textAlign="center">
                         <Button.Group>
-                            <Button onClick={decrementStep} labelPosition='left' icon='left chevron' content='Back' />
+                            <Button onClick={decrementStep} size="huge" labelPosition='left' icon='left chevron' content='Back' />
                             { cookState.timerOn ? (
-                                <Button onClick={() => setTimerOn(false)} icon='stop' />
+                                <Button onClick={() => setTimerOn(false)} size="huge" icon='stop' />
                             ) : (
-                                <Button onClick={() => setTimerOn(true)} icon='play' />
+                                <Button onClick={() => setTimerOn(true)} size="huge" icon='play' />
                             )}
                             
-                            <Button onClick={incrementStep} labelPosition='right' icon='right chevron' content='Forward' />
+                            <Button onClick={incrementStep} size="huge" labelPosition='right' icon='right chevron' content='Next' />
                         </Button.Group>
                     </Header>
                     <Message>
