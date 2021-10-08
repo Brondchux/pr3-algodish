@@ -34,7 +34,7 @@ const Cook = () => {
         currentStepTime: instructions ? instructions[0]["time"]*60 : 0,
         steps: instructions ? instructions : [],
         currentStep: 0,
-        cookTimer: '',
+        cookTimer: instructions ? instructions[0]["time"]*60 : 0,
         timerOn: false,
         finishedCooking: false
     })
@@ -144,7 +144,7 @@ const Cook = () => {
             <div>
                        
                 <Segment padded="very" inverted textAlign="center">
-                    <Progress percent={(cookState.totalTimePassed/cookState.totalCookTime) * 100} size="big"/>
+                    <Progress percent={(cookState.totalTimePassed/cookState.totalCookTime) * 100} size="big" autoSuccess/>
                     <Progress percent={(cookState.currentStepTime - cookState.cookTimer)/cookState.currentStepTime * 100} size="big" indicating />
                     <Statistic color='red' inverted>
                     <Statistic.Value>{minutesToTimeString(cookState.cookTimer).substring(0,minutesToTimeString(cookState.cookTimer).indexOf(':'))}</Statistic.Value>
