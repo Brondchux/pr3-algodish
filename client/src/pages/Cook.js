@@ -24,6 +24,8 @@ const Cook = () => {
 	} = data?.dishById || {};
 
     const ingredientsList = ingredients ? ingredients.split(',').map(item => item.toLowerCase().trim()) : [];
+    // console.log(instructions)
+    // instructions.push({step: 'Enjoy your meal!', time: 0})
   
     const [cookState, setCookState] = useState({
         totalCookTime: cook_time*60,
@@ -33,7 +35,8 @@ const Cook = () => {
         steps: instructions ? instructions : [],
         currentStep: 0,
         cookTimer: '',
-        timerOn: false
+        timerOn: false,
+        finishedCooking: false
     })
     console.log(cookState)
     const setTimerOn = (val) => {
@@ -86,20 +89,21 @@ const Cook = () => {
             console.log('Total Time passed:', cookState.totalTimePassed);
             console.log('Total Cook Time:',cookState.totalCookTime)
         } 
-        // else if ( currentStep === numSteps) {
-        //     let elapsedTime = cookState.steps[currentStep]["time"]*60;
-        //     currentStep++
-        //     let currentStepTime = 0;
-        //     setCookState({
-        //         ...cookState,
-        //         currentStep,
-        //         cookTimer: currentStepTime,
-        //         currentStepTime,
-        //         totalTimePassed: cookState.totalTimePassed + elapsedTime,
-        //         timerOn: false,
-        //         currentStepTimePassed: 0
-        //     })
-        // }
+        else if ( currentStep === numSteps) {
+            let elapsedTime = cookState.steps[currentStep]["time"]*60;
+            currentStep++
+            let currentStepTime = 0;
+            setCookState({
+                ...cookState,
+                currentStep,
+                cookTimer: currentStepTime,
+                currentStepTime,
+                totalTimePassed: cookState.totalTimePassed + elapsedTime,
+                timerOn: false,
+                currentStepTimePassed: 0,
+                finishedCooking: true
+            })
+        }
     };
 
     const decrementStep = () => {
@@ -117,7 +121,8 @@ const Cook = () => {
                 totalTimePassed: cookState.totalTimePassed - elapsedTime,
                 currentStepTime,
                 timerOn: false,
-                currentStepTimePassed: 0
+                currentStepTimePassed: 0,
+                finishedCooking: false
             })
         };
     };
@@ -160,7 +165,7 @@ const Cook = () => {
                         <p> { `Step ${(cookState.currentStep + 1)}:`} </p>
                     </Header>
                     <Header as="h3" size="huge" textAlign="center">
-                        <p><Icon name="utensils"></Icon> { cookState.steps.length ? cookState.steps[cookState.currentStep].step : "" } <Icon name="utensils"></Icon></p>
+                        <p><Icon name="utensils"></Icon> { cookState.steps.length > cookState.currentStep ? cookState.steps[cookState.currentStep].step : "Enjoy your meal!" } <Icon name="utensils"></Icon></p>
                     </Header>
                     <Header textAlign="center">
                         <Button.Group>
@@ -177,7 +182,7 @@ const Cook = () => {
                     <Message>
                         <Message.Header>Ingredients</Message.Header>
                         <List link>
-                            { ingredientsList.length && cookState.steps.length ? (
+                            { ingredientsList.length && cookState.steps.length && !cookState.finishedCooking? (
                             ingredientsList.map( ingredient => {
                                 if (cookState.steps[cookState.currentStep].step.includes(ingredient)){
                                     return <List.Item active as='a' target="_blank" href={`https://en.wikipedia.org/wiki/${ingredient}`}>{ingredient}</List.Item>
