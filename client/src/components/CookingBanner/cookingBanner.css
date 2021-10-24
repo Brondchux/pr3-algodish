@@ -1,0 +1,73 @@
+header {
+  display: flex;
+  min-height: 15vh;
+  width: 100%;
+  background-color: var(--carmine-mp);
+  border-bottom: solid 10px var(--space-cadet);
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.logo {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  color: var(--plain-white);
+}
+
+.title {
+  font-size: 4rem;
+  color: var(--plain-white);
+  text-shadow: rgb(53, 53, 53) 1px 3px 5px;
+}
+
+.cookTime {
+  font-size: 2rem;
+  font-weight: 100;
+  color: var(--transparent-white);
+  text-shadow: rgb(53, 53, 53) 1px 1px 1px;
+  font-style: italic;
+}
+
+.dish {
+  font-style: italic;
+  font-family: cursive;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  flex: 1;
+  text-align: center;
+  margin: 0 1% 0 1%;
+}
+
+nav ul li a {
+  background-color: var(--space-cadet);
+  color: var(--plain-white);
+  display: block;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+nav ul li a:hover {
+  background-color: var(--eggshell);
+  color: var(--space-cadet);
+}

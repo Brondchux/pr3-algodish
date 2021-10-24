@@ -1,6 +1,6 @@
 [
   {
-    "steps": [
+    "instructions": [
       {
         "time": 10,
         "step": "Get bread"
@@ -36,7 +36,7 @@
     ]
   },
   {
-    "steps": [
+    "instructions": [
       {
         "time": 10,
         "step": "Massage kale"
@@ -56,7 +56,7 @@
     ]
   },
   {
-    "steps": [
+    "instructions": [
       {
         "time": 10,
         "step": "Combine juice from lemon with salt, pepper, chives, and dill."
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "steps": [
+    "instructions": [
       {
         "time": 10,
         "step": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl"
@@ -96,7 +96,7 @@
     ]
   },
   {
-    "steps": [
+    "instructions": [
       {
         "time": 10,
         "step": "Heat up oil in a wok"

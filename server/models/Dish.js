@@ -9,7 +9,6 @@ const dishSchema = new Schema({
   },
   username: {
     type: String,
-    required: true,
     trim: true,
   },
   image: {
@@ -26,12 +25,19 @@ const dishSchema = new Schema({
   recipe: {
     type: String,
     trim: true,
-    required: true,
   },
-  instructions: {
-    type: Schema.Types.ObjectId,
-    ref: "Instructions",
-  },
+  instructions: [
+    {
+      step: {
+        type: String,
+        trim: true,
+        required: true,
+      },
+      time: {
+        type: Number
+      },
+    }
+],
   cook_time: {
     type: Number,
   },

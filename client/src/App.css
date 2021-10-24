@@ -1,36 +1,37 @@
 :root {
-	--space-cadet: #1a1b41;
-	--max-blue-green: #17bebb;
-	--eggshell: #f8f2dc;
-	--carmine-mp: #d62246;
-	--jet: #2f2d2e;
-	--plain-white: #ffffff;
+  --space-cadet: #1a1b41;
+  --max-blue-green: #17bebb;
+  --eggshell: #f8f2dc;
+  --carmine-mp: #d62246;
+  --jet: #2f2d2e;
+  --plain-white: #ffffff;
+  --transparent-white: #ffffffd7;
 }
 body {
-	background-color: var(--eggshell);
+  background-color: var(--eggshell);
 }
 main {
-	min-height: 75vh;
+  min-height: 75vh;
 }
 .cadet-color {
-	color: var(--space-cadet);
+  color: var(--space-cadet);
 }
 .blue-color {
-	color: var(--max-blue-green);
+  color: var(--max-blue-green);
 }
 .eggshell-color {
-	color: var(--eggshell);
+  color: var(--eggshell);
 }
 .carmine-color {
-	color: var(--carmine-mp);
+  color: var(--carmine-mp);
 }
 .jet-color {
-	color: var(--jet);
+  color: var(--jet);
 }
 .white-color {
-	color: var(--plain-white);
+  color: var(--plain-white);
 }
 .algo-button {
-	background-color: var(--space-cadet);
-	color: var(--plain-white);
+  background-color: var(--space-cadet);
+  color: var(--plain-white);
 }

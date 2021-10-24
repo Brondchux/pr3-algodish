@@ -21,25 +21,46 @@ export const CREATE_NEW_USER = gql`
 export const CREATE_NEW_DISH = gql`
 	mutation uploadDish(
 		$title: String!
-		$username: String!
 		$description: String!
 		$image: String
 		$ingredients: String!
-		$recipe: String!
 		$cook_time: Int
+		$userId : ID!
+		$username: String!
 	) {
 		uploadDish(
 			title: $title
-			username: $username
 			description: $description
 			image: $image
 			ingredients: $ingredients
-			recipe: $recipe
 			cook_time: $cook_time
+			userId: $userId
+			username: $username
 		) {
 			_id
 		}
 	}
+`;
+
+export const ADD_STEP_TO_DISH_INSTRUCTIONS = gql`
+	mutation addInstructionsToDish (
+		$dishId: ID!
+		$step: String!
+		$time: Int 
+	) {
+		addInstructionsToDish(
+			dishId: $dishId
+			step: $step
+			time: $time
+		) {
+			_id
+			title
+			instructions {
+				step
+				time
+	  		}
+		}
+  	}
 `;
 
 //Delete A Dish by dish _id

@@ -1,8 +1,10 @@
-import { Header, Icon, Segment, Message, List } from "semantic-ui-react";
+import { Header, Icon, Segment, Message, List, Grid } from "semantic-ui-react";
 import { FETCH_WHOLE_DISH_BY_ID } from "../utils/queries";
+import MainButton from "../components/MainButton";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 const Dish = () => {
 	const dishStyles = {
@@ -20,6 +22,7 @@ const Dish = () => {
 	const { loading, data } = useQuery(FETCH_WHOLE_DISH_BY_ID, {
 		variables: { id: dishId },
 	});
+	console.log(data?.dishById)
 
 	const {
 		title,
@@ -27,12 +30,15 @@ const Dish = () => {
 		username,
 		description,
 		ingredients,
+		instructions,
 		recipe,
 		cook_time,
 	} = data?.dishById || {};
 
 	const ingredientsList = ingredients ? ingredients.split(",") : [];
 	const recipeList = recipe ? recipe.split(".") : [];
+
+	console.log(instructions)
 
 	return (
 		<Segment basic padded="very">
@@ -72,14 +78,18 @@ const Dish = () => {
 					<Message>
 						<Message.Header>Recipe</Message.Header>
 						<Segment>
-							{recipeList
-								.slice(0, recipeList.length - 1)
-								.map((recipe, index) => (
+							{instructions
+								.map((step, index) => (
 									<List key={index} divided inverted relaxed>
 										<List.Item>
-											<List.Content>
-												{index + 1}. {recipe}
-											</List.Content>
+											<Grid>
+												<Grid.Column floated="left" width={12}>
+												{index + 1}. {step.step}
+												</Grid.Column>
+												<Grid.Column textAlign="right" width={4}>
+												<i>{step.time} min.</i>
+												</Grid.Column>
+											</Grid>
 										</List.Item>
 									</List>
 								))}
@@ -97,6 +107,9 @@ const Dish = () => {
 							</List>
 						</Segment>
 					</Message>
+					<Link to={`/dish/${dishId}/cook`}>
+						<MainButton title="Cook With Me!"></MainButton>
+					</Link>
 				</Segment>
 			)}
 		</Segment>

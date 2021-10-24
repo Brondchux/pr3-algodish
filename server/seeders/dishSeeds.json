@@ -7,7 +7,41 @@
     "description": "An American staple. A buttery grilled sandwich with a melted cheese center.",
     "ingredients": "bread, cheese, butter",
     "recipe": "Get bread. Get Cheese. Heat up pan. Put butter on bread. Put cheese on bread. Put sandwich in pan. Flip. Eat.",
-    "cook_time": 15
+    "cook_time": 21,
+    "instructions": [
+      {
+        "time": 1,
+        "step": "Get bread"
+      },
+      {
+        "time": 1,
+        "step": "Get cheese"
+      },
+      {
+        "time": 5,
+        "step": "Heat Up Pan"
+      },
+      {
+        "time": 1,
+        "step": "Put butter on bread"
+      },
+      {
+        "time": 2,
+        "step": "Put cheese on bread"
+      },
+      {
+        "time": 5,
+        "step": "Put sandwich in pan"
+      },
+      {
+        "time": 1,
+        "step": "Flip!"
+      },
+      {
+        "time": 5,
+        "step": "Eat"
+      }
+    ]
   },
   {
     "title": "Kale Salad",
@@ -17,7 +51,25 @@
     "description": "This easy kale salad features fresh veggies and a super simple homemade lemon dressing, making it perfect as a healthy side dish or light lunch! It is definitely one of my very favorite kale salad recipes!",
     "ingredients": "kale, tomatoes, almonds, parmesan cheese",
     "recipe": "Massage kale. Grate parmesan. Chop almonds. Slice tomatoes.",
-    "cook_time": 20
+    "cook_time": 55,
+    "instructions": [
+      {
+        "time": 10,
+        "step": "Massage kale"
+      },
+      {
+        "time": 15,
+        "step": "Grate parmesan"
+      },
+      {
+        "time": 15,
+        "step": "Chop almonds"
+      },
+      {
+        "time": 15,
+        "step": "Slice tomatoes"
+      }
+    ]
   },
   {
     "title": "Baked Salmon",
@@ -27,7 +79,25 @@
     "description": "Whether you need a fast, healthy dinner, a meal to wow the crowd, or a simple protein that you can enjoy tonight and eat leftover the next day, this is THE baked salmon recipe for you!",
     "ingredients": "salmon, lemon, chives, salt, pepper, dill",
     "recipe": "Combine juice from lemon with salt, pepper, chives, and dill. Spread onto salmon. Bake in oven for 25 minutes. Serve with additional chopped chives.",
-    "cook_time": 30
+    "cook_time": 65,
+    "instructions": [
+      {
+        "time": 10,
+        "step": "Combine juice from lemon with salt, pepper, chives, and dill."
+      },
+      {
+        "time": 15,
+        "step": "Spread onto salmon"
+      },
+      {
+        "time": 25,
+        "step": "Bake in oven for 25 minutes"
+      },
+      {
+        "time": 15,
+        "step": "Serve with additional chopped chives"
+      }
+    ]
   },
   {
     "title": "Coq au Vin",
@@ -37,7 +107,25 @@
     "description": "Coq Au Vin or rooster with wine is a classic French dish that isn't as complicated as it sounds. Chicken is braised in a silky wine sauce and finished off with butter for the most perfect sauce. ",
     "ingredients": "chicken, red wine, pearl onions, thyme, bay leaf, bacon, flour, beef stock, tomato paste, butter, mushrooms, parsley",
     "recipe": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl. Marinate chicken in wine mixture. Sear chicken. In a 350 degree oven, roast chicken with bacon and flour.",
-    "cook_time": 200
+    "cook_time": 430,
+    "instructions": [
+      {
+        "time": 10,
+        "step": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl"
+      },
+      {
+        "time": 200,
+        "step": "Marinate chicken in wine mixture"
+      },
+      {
+        "time": 20,
+        "step": "Sear chicken"
+      },
+      {
+        "time": 200,
+        "step": "In a 350 degree oven, roast chicken with bacon and flour"
+      }
+    ]
   },
   {
     "title": "Egg Fried Rice",
@@ -47,7 +135,25 @@
     "description": "This egg fried rice recipe is designed to work with any cooking setup, whether you're lucky enough to have a true flaming-hot wok burner or are just using a nonstick skillet on an electric cooktop.",
     "ingredients": "leftover rice, cooking oil, soy sauce, 4 eggs",
     "recipe": "Heat up oil in a wok. Add rice and soy sauce, stir to combine. Add in eggs. Leave on heat until eggs are cooked through.",
-    "cook_time": 15
+    "cook_time": 55,
+    "instructions": [
+      {
+        "time": 10,
+        "step": "Heat up oil in a wok"
+      },
+      {
+        "time": 15,
+        "step": "Add rice and soy sauce, stir to combine"
+      },
+      {
+        "time": 15,
+        "step": "Add in eggs"
+      },
+      {
+        "time": 15,
+        "step": "Leave on heat until eggs are cooked through"
+      }
+    ]
   },
   {
     "title": "Grilled Cheese",
@@ -57,7 +163,41 @@
     "description": "An American staple. A buttery grilled sandwich with a melted cheese center.",
     "ingredients": "bread, cheese, butter",
     "recipe": "Get bread. Get Cheese. Heat up pan. Put butter on bread. Put cheese on bread. Put sandwich in pan. Flip. Eat.",
-    "cook_time": 15
+    "cook_time": 12,
+    "instructions": [
+      {
+        "time": 1,
+        "step": "Get bread"
+      },
+      {
+        "time": 1,
+        "step": "Get cheese"
+      },
+      {
+        "time": 2,
+        "step": "Heat Up Pan"
+      },
+      {
+        "time": 1,
+        "step": "Put butter on bread"
+      },
+      {
+        "time": 1,
+        "step": "Put cheese on bread"
+      },
+      {
+        "time": 1,
+        "step": "Put sandwich in pan"
+      },
+      {
+        "time": 3,
+        "step": "Flip!"
+      },
+      {
+        "time": 2,
+        "step": "Eat"
+      }
+    ]
   },
   {
     "title": "Kale Salad",
@@ -67,7 +207,25 @@
     "description": "This easy kale salad features fresh veggies and a super simple homemade lemon dressing, making it perfect as a healthy side dish or light lunch! It is definitely one of my very favorite kale salad recipes!",
     "ingredients": "kale, tomatoes, almonds, parmesan cheese",
     "recipe": "Massage kale. Grate parmesan. Chop almonds. Slice tomatoes.",
-    "cook_time": 20
+    "cook_time": 55,
+    "instructions": [
+      {
+        "time": 10,
+        "step": "Massage kale"
+      },
+      {
+        "time": 15,
+        "step": "Grate parmesan"
+      },
+      {
+        "time": 15,
+        "step": "Chop almonds"
+      },
+      {
+        "time": 15,
+        "step": "Slice tomatoes"
+      }
+    ]
   },
   {
     "title": "Baked Salmon",
@@ -77,7 +235,25 @@
     "description": "Whether you need a fast, healthy dinner, a meal to wow the crowd, or a simple protein that you can enjoy tonight and eat leftover the next day, this is THE baked salmon recipe for you!",
     "ingredients": "salmon, lemon, chives, salt, pepper, dill",
     "recipe": "Combine juice from lemon with salt, pepper, chives, and dill. Spread onto salmon. Bake in oven for 25 minutes. Serve with additional chopped chives.",
-    "cook_time": 40
+    "cook_time": 22,
+    "instructions": [
+      {
+        "time": 1,
+        "step": "Combine juice from lemon with salt, pepper, chives, and dill."
+      },
+      {
+        "time": 15,
+        "step": "Spread onto salmon"
+      },
+      {
+        "time": 5,
+        "step": "Bake in oven for 25 minutes"
+      },
+      {
+        "time": 1,
+        "step": "Serve with additional chopped chives"
+      }
+    ]
   },
   {
     "title": "Coq au Vin",
@@ -87,7 +263,25 @@
     "description": "Coq Au Vin or rooster with wine is a classic French dish that isn't as complicated as it sounds. Chicken is braised in a silky wine sauce and finished off with butter for the most perfect sauce. ",
     "ingredients": "chicken, red wine, pearl onions, thyme, bay leaf, bacon, flour, beef stock, tomato paste, butter, mushrooms, parsley",
     "recipe": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl. Marinate chicken in wine mixture. Sear chicken. In a 350 degree oven, roast chicken with bacon and flour.",
-    "cook_time": 200
+    "cook_time": 34,
+    "instructions": [
+      {
+        "time": 10,
+        "step": "Combine wine, bay leaf, thyme, beef stock, and pearl onions in a bowl"
+      },
+      {
+        "time": 2,
+        "step": "Marinate chicken in wine mixture"
+      },
+      {
+        "time": 20,
+        "step": "Sear chicken"
+      },
+      {
+        "time": 2,
+        "step": "In a 350 degree oven, roast chicken with bacon and flour"
+      }
+    ]
   },
   {
     "title": "Egg Fried Rice",
@@ -97,6 +291,24 @@
     "description": "This egg fried rice recipe is designed to work with any cooking setup, whether you're lucky enough to have a true flaming-hot wok burner or are just using a nonstick skillet on an electric cooktop.",
     "ingredients": "leftover rice, cooking oil, soy sauce, 4 eggs",
     "recipe": "Heat up oil in a wok. Add rice and soy sauce, stir to combine. Add in eggs. Leave on heat until eggs are cooked through.",
-    "cook_time": 15
+    "cook_time": 55,
+    "instructions": [
+      {
+        "time": 10,
+        "step": "Heat up oil in a wok"
+      },
+      {
+        "time": 15,
+        "step": "Add rice and soy sauce, stir to combine"
+      },
+      {
+        "time": 15,
+        "step": "Add in eggs"
+      },
+      {
+        "time": 15,
+        "step": "Leave on heat until eggs are cooked through"
+      }
+    ]
   }
 ]
