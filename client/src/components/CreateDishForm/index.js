@@ -208,11 +208,10 @@ const CreateDishForm = () => {
 					</Form.Group>
 					
 				))}
-				<Button.Group size='small'>
-    				<Button onClick={decrementNumSteps}>-</Button>
-    				<Button.Or />
-    				<Button onClick={incrementNumSteps}>+</Button>
-  				</Button.Group>
+				
+    			<Button type="button" onClick={decrementNumSteps}>-</Button>
+    			<Button type="button" onClick={incrementNumSteps}>+</Button>
+  				
 				<Form.Input
 					label="Cook Time"
 					placeholder="cook time"
